@@ -4,7 +4,8 @@
 #include <iostream>
 #include "Player.h"
 #include "Event.h"
-#include "../src-MenuAPI/MenuManager.h"
+#include "GameGUI.h"
+#include "MainMenu.h"
 
 class Game
 {
@@ -13,12 +14,15 @@ public:
     Event getCurrentEvent();
     void setCurrentEvent(Event e);
 
-    void update();
+    void update(ofVec2f&, bool&, bool&);
     void draw();
 
 private:
     Event currentEvent;
     Player gamePlayer;
-    MenuManager GUI;
+    //GameGUI GUI;
+    MainMenu mainMenu;
+    enum gameState{MMENU, GAME, SHOP};
+    gameState currentState;
 
 };

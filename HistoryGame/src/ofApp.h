@@ -18,4 +18,9 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		Game* theGame;
+		ofVec2f mousePos;
+		bool dragging;
+		bool pressed;
+		bool clicked;
+
 };

@@ -132,6 +132,10 @@
 		<Unit filename="src/src-Game/Event.h" />
 		<Unit filename="src/src-Game/Game.cpp" />
 		<Unit filename="src/src-Game/Game.h" />
+		<Unit filename="src/src-Game/GameGUI.cpp" />
+		<Unit filename="src/src-Game/GameGUI.h" />
+		<Unit filename="src/src-Game/MainMenu.cpp" />
+		<Unit filename="src/src-Game/MainMenu.h" />
 		<Unit filename="src/src-Game/Player.cpp" />
 		<Unit filename="src/src-Game/Player.h" />
 		<Unit filename="src/src-Game/ResourceManager.cpp" />

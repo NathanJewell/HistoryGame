@@ -47,7 +47,7 @@ inline Event loadEvent(int eventNum)
     std::vector<std::string> fileLines = loadEventFile(eventNum);
     for(int ii = 0; ii < fileLines.size(); ii++)
     {
-        fileLines[ii] = parseLineToData<std::string>(fileLines[ii], fileLines[ii], "=", true);
+        parseLineToData<std::string>(fileLines[ii], fileLines[ii], "=", true);
     }
     Event tempEvent(stringToType<int>(fileLines[0]),
                     stringToType<int>(fileLines[1]),

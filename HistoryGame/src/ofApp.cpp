@@ -7,7 +7,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    theGame->update();
+    theGame->update(mousePos, clicked, pressed);
 }
 
 //--------------------------------------------------------------
@@ -21,28 +21,43 @@ void ofApp::keyPressed(int key){
 }
 
 //--------------------------------------------------------------
+//--------------------------------------------------------------
 void ofApp::keyReleased(int key){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y){
-
+void ofApp::mouseMoved(int x, int y ){
+  mousePos.x = x;
+  mousePos.y = y;
+  dragging = false;
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
+    dragging = true;
+    mousePos.x = x;
+    mousePos.y = y;
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-
+    dragging = false;
+    mousePos.x = x;
+    mousePos.y = y;
+    pressed = true;
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
+    if(pressed == true)
+    {
+        pressed = false;
+        clicked = true;
+    }
+    dragging = false;
+    mousePos.x = x;
+    mousePos.y = y;
 }
 
 //--------------------------------------------------------------

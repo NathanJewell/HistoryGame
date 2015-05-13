@@ -1,0 +1,7 @@
+thisNum = 101
+yesNum = 100
+noNum = 0
+name = ARTICLES?
+description = GET FUCKING MEMED BRO
+roomType = Continental
+date = 1430
