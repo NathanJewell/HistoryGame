@@ -1,0 +1,7 @@
+thisNum = 100
+yesNum = 101
+noNum = 0
+name = Independence?
+description = This gr8 place gotta become inderpendert from the great mother nation of britain comon now bruh let us free
+roomType = Continental
+date = 1420
