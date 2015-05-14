@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Objects.h"
 class Player
 {
     public:

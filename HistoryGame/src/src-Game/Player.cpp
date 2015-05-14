@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player
+Player::Player()
 {
 
 }
@@ -42,7 +42,7 @@ void Player::addMoney(int amount)
     money+=amount;
 }
 
-void Player::subMoney(int amound)
+void Player::subMoney(int amount)
 {
     money-=amount;
 }

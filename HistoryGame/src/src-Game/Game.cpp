@@ -35,6 +35,7 @@ void Game::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
         {
             currentEvent = currentEvent.doNextEvent(false);
         }
+        GUI.update(mousePos, pressed, clicked);
     }
     else if(currentState == MMENU)
     {
@@ -52,7 +53,7 @@ void Game::draw()
 {
     if(currentState == GAME)
     {
-
+        GUI.draw();
     }
     else if(currentState == MMENU)
     {

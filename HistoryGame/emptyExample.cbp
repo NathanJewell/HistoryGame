@@ -128,6 +128,8 @@
 		<Unit filename="src/ofApp.h">
 			<Option virtualFolder="src" />
 		</Unit>
+		<Unit filename="src/src-Game/Animation.cpp" />
+		<Unit filename="src/src-Game/Animation.h" />
 		<Unit filename="src/src-Game/Event.cpp" />
 		<Unit filename="src/src-Game/Event.h" />
 		<Unit filename="src/src-Game/Game.cpp" />
@@ -136,6 +138,8 @@
 		<Unit filename="src/src-Game/GameGUI.h" />
 		<Unit filename="src/src-Game/MainMenu.cpp" />
 		<Unit filename="src/src-Game/MainMenu.h" />
+		<Unit filename="src/src-Game/Objects.cpp" />
+		<Unit filename="src/src-Game/Objects.h" />
 		<Unit filename="src/src-Game/Player.cpp" />
 		<Unit filename="src/src-Game/Player.h" />
 		<Unit filename="src/src-Game/ResourceManager.cpp" />

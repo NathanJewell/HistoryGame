@@ -8,7 +8,7 @@ Object::Object()
 
 Object::Object(ofVec2f pos, ofTexture& tex)
 {
-    objectTexture = tex;
+    objectTexture = &tex;
     setPosition(pos);
 
 }
@@ -20,18 +20,18 @@ ofTexture* Object::getTexture()
 
 void Object::setTexture(ofTexture& newTexture)
 {
-    objectTexture = newTexture;
+    objectTexture = &newTexture;
 }
 
-void Object::getPosition()
+ofVec2f Object::getPosition()
 {
     return position;
 }
 
-ofVec2f setPosition(ofVec2f pos)
+void Object::setPosition(ofVec2f pos)
 {
     position = pos;
-    drawPostion = ofVec2f(position.x-(objectTexture->getWidth()/2), position.y-(objectTexture->getHeight()/2));
+    drawPosition = ofVec2f(position.x-(objectTexture->getWidth()/2), position.y-(objectTexture->getHeight()/2));
 }
 
 void Object::update()
@@ -48,34 +48,34 @@ void Object::draw()     //draws object centered on position
 
 //--------------------ANIM OBJECT--------------------------
 
-AnimObject::AnimObject(ofVec2f pos, ofTexture& tex, ofVec2f texSize, int FPS, int numFrames)
-{
-    setPosition(pos);
-    objectTexture = tex;
-    bgIsAnim = false;
-    objectAnim.init(tex, texSize, position, FPS, numFrames);
-}
-
-AnimObject::AnimObject(ofVec2f pos, ofTexture& tex, bool doBG, ofTexture& animTex, ofVec2f texSize, int FPS, int numFrames)
-{
-    setPosition(pos);
-    objectTexture = tex;
-    bgIsAnim = true;
-    objectAnim.init(animTex, texSize, position, FPS, numFrames);
-}
-
-
-void update()
-{
-    objectAnim.update();
-}
-
-void draw()
-{
-    objectAnim.drawCurrentFrame();
-    if(!bgIsAnim)
-    {
-        objectTexture->draw(drawPosition);
-    }
-}
-
+//AnimObject::AnimObject(ofVec2f pos, ofTexture& tex, ofVec2f texSize, int FPS, int numFrames)
+//{
+//    setPosition(pos);
+//    objectTexture = tex;
+//    bgIsAnim = false;
+//    objectAnim.init(tex, texSize, position, FPS, numFrames);
+//}
+//
+//AnimObject::AnimObject(ofVec2f pos, ofTexture& tex, bool doBG, ofTexture& animTex, ofVec2f texSize, int FPS, int numFrames)
+//{
+//    setPosition(pos);
+//    objectTexture = tex;
+//    bgIsAnim = true;
+//    objectAnim.init(animTex, texSize, position, FPS, numFrames);
+//}
+//
+//
+//void update()
+//{
+//    objectAnim.update();
+//}
+//
+//void draw()
+//{
+//    objectAnim.drawCurrentFrame();
+//    if(!bgIsAnim)
+//    {
+//        objectTexture->draw(drawPosition);
+//    }
+//}
+//

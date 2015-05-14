@@ -20,7 +20,7 @@ public:
 private:
     Event currentEvent;
     Player gamePlayer;
-    //GameGUI GUI;
+    GameGUI GUI;
     MainMenu mainMenu;
     enum gameState{MMENU, GAME, SHOP};
     gameState currentState;
