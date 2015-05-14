@@ -2,6 +2,6 @@ thisNum = 101
 yesNum = 100
 noNum = 0
 name = ARTICLES?
-description = GET FUCKING MEMED BRO
+description = This is the description
 roomType = Continental
 date = 1430
