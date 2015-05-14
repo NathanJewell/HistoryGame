@@ -6,7 +6,7 @@
 #include "Event.h"
 #include "GameGUI.h"
 #include "MainMenu.h"
-
+#include "ResourceManager.h"
 class Game
 {
 public:
@@ -22,6 +22,8 @@ private:
     Player gamePlayer;
     GameGUI GUI;
     MainMenu mainMenu;
+    ResourceManager recMan;
+    Animation testAnim;
     enum gameState{MMENU, GAME, SHOP};
     gameState currentState;
 

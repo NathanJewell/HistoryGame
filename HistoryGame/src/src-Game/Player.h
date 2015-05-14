@@ -4,13 +4,13 @@ class Player
 {
     public:
         Player();
-        Player(ofTexture& hat, ofTexture& pants, ofTexture& shirt, int initMoney);
+        Player(ofTexture* hat, ofTexture* pants, ofTexture* shirt, int initMoney);
         void update();
         void draw();
 
-        void setHatTexture(ofTexture&);
-        void setPantTexture(ofTexture&);
-        void setShirtTexture(ofTexture&);
+        void setHatTexture(ofTexture*);
+        void setPantTexture(ofTexture*);
+        void setShirtTexture(ofTexture*);
 
         void addMoney(int amount);
         void subMoney(int amount);

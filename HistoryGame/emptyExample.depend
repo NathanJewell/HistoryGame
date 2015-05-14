@@ -1483,15 +1483,16 @@
 	"ofMain.h"
 	"src-Game/Game.h"
 
-1431627068 c:\openframeworks\apps\historygame\historygame\src\src-game\game.h
+1431638397 c:\openframeworks\apps\historygame\historygame\src\src-game\game.h
 	"ofMain.h"
 	<iostream>
 	"Player.h"
 	"Event.h"
 	"GameGUI.h"
 	"MainMenu.h"
+	"ResourceManager.h"
 
-1431627266 c:\openframeworks\apps\historygame\historygame\src\src-game\player.h
+1431635062 c:\openframeworks\apps\historygame\historygame\src\src-game\player.h
 	"Objects.h"
 
 1431540019 c:\openframeworks\apps\historygame\historygame\src\src-game\event.h
@@ -1527,12 +1528,14 @@
 1431539636 source:c:\openframeworks\apps\historygame\historygame\src\src-game\event.cpp
 	"Event.h"
 
-1431627364 source:c:\openframeworks\apps\historygame\historygame\src\src-game\game.cpp
+1431637781 source:c:\openframeworks\apps\historygame\historygame\src\src-game\game.cpp
 	"Game.h"
 
-1431399294 source:c:\openframeworks\apps\historygame\historygame\src\src-game\player.cpp
+1431635062 source:c:\openframeworks\apps\historygame\historygame\src\src-game\player.cpp
+	"Player.h"
 
-1431539636 source:c:\openframeworks\apps\historygame\historygame\src\src-game\resourcemanager.cpp
+1431637366 source:c:\openframeworks\apps\historygame\historygame\src\src-game\resourcemanager.cpp
+	"ResourceManager.h"
 
 1431539636 source:c:\openframeworks\apps\historygame\historygame\src\src-game\room.cpp
 
@@ -1609,14 +1612,21 @@
 1431542587 source:c:\openframeworks\apps\historygame\historygame\src\src-game\mainmenu.cpp
 	"MainMenu.h"
 
-1431627612 c:\openframeworks\apps\historygame\historygame\src\src-game\objects.h
+1431635062 c:\openframeworks\apps\historygame\historygame\src\src-game\objects.h
 	"ofMain.h"
 	"Animation.h"
 
-1431627327 c:\openframeworks\apps\historygame\historygame\src\src-game\animation.h
+1431634464 c:\openframeworks\apps\historygame\historygame\src\src-game\animation.h
+	"ofMain.h"
 
-1431627327 source:c:\openframeworks\apps\historygame\historygame\src\src-game\animation.cpp
+1431638397 source:c:\openframeworks\apps\historygame\historygame\src\src-game\animation.cpp
+	"Animation.h"
 
-1431627627 source:c:\openframeworks\apps\historygame\historygame\src\src-game\objects.cpp
+1431635062 source:c:\openframeworks\apps\historygame\historygame\src\src-game\objects.cpp
 	"Objects.h"
+
+1431637366 c:\openframeworks\apps\historygame\historygame\src\src-game\resourcemanager.h
+	"ofMain.h"
+	<windows.h>
+	<stdio.h>
 

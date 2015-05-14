@@ -5,7 +5,7 @@ Player::Player()
 
 }
 
-Player::Player(ofTexture& hatT, ofTexture& pantsT, ofTexture& shirtT, int initMoney)
+Player::Player(ofTexture* hatT, ofTexture* pantsT, ofTexture* shirtT, int initMoney)
 {
     setHatTexture(hatT);
     setPantTexture(pantsT);
@@ -24,15 +24,15 @@ void Player::draw()
     shirt.draw();
 }
 
-void Player::setHatTexture(ofTexture& newT)
+void Player::setHatTexture(ofTexture* newT)
 {
     hat.setTexture(newT);
 }
-void Player::setPantTexture(ofTexture& newT)
+void Player::setPantTexture(ofTexture* newT)
 {
     pants.setTexture(newT);
 }
-void Player::setShirtTexture(ofTexture& newT)
+void Player::setShirtTexture(ofTexture* newT)
 {
     shirt.setTexture(newT);
 }
