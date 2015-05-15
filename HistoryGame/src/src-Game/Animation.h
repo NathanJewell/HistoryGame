@@ -6,8 +6,8 @@ class Animation
 {
 public:
     Animation();
-    Animation(ofTexture*, ofVec2f, ofVec2f pos, int, int);
-    void init(ofTexture*, ofVec2f, ofVec2f pos, int, int);
+    Animation(ofTexture*, ofVec2f, ofVec2f pos, int, int, bool);
+    void init(ofTexture*, ofVec2f, ofVec2f pos, int, int, bool);
     ofTexture* getTextureSheet();
     void setTextureSheet(ofTexture*);
     void calcSheetDimensions();
@@ -18,6 +18,9 @@ public:
     void update();
     void doNextOffset();
 
+    void doAnimation(int);
+    void toggleAlwaysOn();
+
     void drawCurrentFrame();
 private:
     ofVec2f position;
@@ -27,4 +30,6 @@ private:
     int numAnimationFrames;
     int currentFrameNum;
     long lastFrameTime;
+    bool alwaysOn, nowOn;
+    int numDone, numRequested;
 };

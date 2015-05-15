@@ -5,16 +5,9 @@ Player::Player()
 
 }
 
-Player::Player(ofTexture* hatT, ofTexture* pantsT, ofTexture* shirtT, int initMoney)
-{
-    setHatTexture(hatT);
-    setPantTexture(pantsT);
-    setShirtTexture(shirtT);
-    setMoney(initMoney);
-}
 void Player::update()
 {
-    //objects dont update
+    //normal objects dont update
 }
 
 void Player::draw()
@@ -22,6 +15,21 @@ void Player::draw()
     hat.draw();
     pants.draw();
     shirt.draw();
+}
+
+void Player::initHat(ofVec2f pos, ofTexture* tex)
+{
+    hat.initObject(pos, tex, ofVec2f(2, 2));
+}
+
+void Player::initPant(ofVec2f pos, ofTexture* tex)
+{
+    pants.initObject(pos, tex, ofVec2f(2, 2));
+}
+
+void Player::initShirt(ofVec2f pos, ofTexture* tex)
+{
+    shirt.initObject(pos, tex, ofVec2f(2, 2));
 }
 
 void Player::setHatTexture(ofTexture* newT)

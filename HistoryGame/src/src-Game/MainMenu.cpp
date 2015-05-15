@@ -340,7 +340,6 @@ bool MainMenu::update(ofVec2f& mousePos, bool& clicked, bool& pressed) // In Upd
         Manager->update(mousePos, clicked, pressed); // and finally, and most importantly, we update the manager
 
         double tmp = VolumeSlider->getEventDataInt();
-        std::cout << tmp << std::endl;
         ofSoundSetVolume(tmp/100);
 
         // this (if) -- (else if) statement is a good example of swapping between menus:

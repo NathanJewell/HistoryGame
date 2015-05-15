@@ -7,6 +7,7 @@
 #include "GameGUI.h"
 #include "MainMenu.h"
 #include "ResourceManager.h"
+#include "Room.h"
 class Game
 {
 public:
@@ -18,13 +19,16 @@ public:
     void draw();
 
 private:
-    Event currentEvent;
-    Player gamePlayer;
+
     GameGUI GUI;
     MainMenu mainMenu;
     ResourceManager recMan;
     Animation testAnim;
     enum gameState{MMENU, GAME, SHOP};
     gameState currentState;
+
+    Event currentEvent;
+    Room gameRoom;
+    Player gamePlayer;
 
 };

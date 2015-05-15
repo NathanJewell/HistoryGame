@@ -5,24 +5,26 @@ Animation::Animation()
     currentFrameNum = 0;
 }
 
-Animation::Animation(ofTexture* she, ofVec2f fS, ofVec2f pos, int FPS, int numFrames)
+Animation::Animation(ofTexture* she, ofVec2f fS, ofVec2f pos, int FPS, int numFrames, bool onnes)
 {
-    sheet = she;
-    calcSheetDimensions();
-    frameSize = fS;
-    animationFPS = FPS;
-    numAnimationFrames = numFrames;
-    position = pos;
+    init(she, fS, pos, FPS, numFrames, onnes);
 }
 
-void Animation::init(ofTexture* she, ofVec2f fS, ofVec2f pos, int FPS, int numFrames)
+void Animation::init(ofTexture* she, ofVec2f fS, ofVec2f pos, int FPS, int numFrames, bool onnes)
 {
     sheet = she;
-    calcSheetDimensions();
+
     frameSize = fS;
     animationFPS = FPS;
     numAnimationFrames = numFrames;
     position = pos;
+    calcSheetDimensions();
+    alwaysOn = onnes;
+    nowOn = true;
+    if(!alwaysOn)
+    {
+        nowOn = false;
+    }
 }
 
 ofTexture* Animation::getTextureSheet()
@@ -36,6 +38,17 @@ void Animation::setTextureSheet(ofTexture* tex)
     calcSheetDimensions();
 }
 
+void Animation::doAnimation(int times)
+{
+    nowOn = true;
+    numRequested = times;
+}
+
+void Animation::toggleAlwaysOn()
+{
+    alwaysOn = !alwaysOn;
+}
+
 void Animation::calcSheetDimensions()
 {
     sheetDimensions = ofVec2f(sheet->getWidth()/frameSize.x, sheet->getHeight()/frameSize.y);
@@ -43,13 +56,23 @@ void Animation::calcSheetDimensions()
 
 void Animation::update()
 {
-    if(ofGetElapsedTimeMillis()-lastFrameTime >= (long)1000/animationFPS)
+    if(ofGetElapsedTimeMillis()-lastFrameTime >= (long)1000/animationFPS && nowOn)
     {
-        std::cout << currentFrameNum << std::endl;
+//        std::cout << currentFrameNum << std::endl;
         currentFrameNum++;
         if(currentFrameNum > numAnimationFrames)
         {
-            currentFrameNum=1;
+            currentFrameNum=0;
+            if(!alwaysOn)
+            {
+                numDone++;
+                if(numDone >= numRequested)
+                {
+                    nowOn = false;
+                    numDone = 0;
+                }
+
+            }
         }
         doNextOffset();
         lastFrameTime = ofGetElapsedTimeMillis();
@@ -67,6 +90,9 @@ void Animation::doNextOffset()
 
 void Animation::drawCurrentFrame()
 {
-    sheet->drawSubsection(position.x, position.y, frameSize.x, frameSize.y, offset.x, offset.y);
+    if(nowOn)
+    {
+        sheet->drawSubsection(position.x, position.y, frameSize.x, frameSize.y, offset.x, offset.y);
+    }
 }
 

@@ -4,8 +4,12 @@ Game::Game(int startingEvent)
 {
     currentEvent = loadEvent(startingEvent);    //load first event of chain
     currentState = MMENU;
-    recMan.addTexture("testSheet.png", "testSheet");
-    testAnim.init(recMan.getTexturePointer("testSheet"), ofVec2f(128,128), ofVec2f(300, 300), 5, 5);
+    recMan.loadFilesFromDirectory("C:\\OpenFrameworks\\apps\\HistoryGame\\HistoryGame\\bin\\data\\historyTextures");
+    testAnim.init(recMan.getTexturePointer("testSheet"), ofVec2f(128,128), ofVec2f(300, 300), 1, 5, true);
+    //gameRoom.setBGTexture(recMan.getTexturePointer("CongressModern"));
+    gamePlayer.initHat(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()-218), recMan.getTexturePointer("ClassicHat"));
+    gamePlayer.initPant(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()-10), recMan.getTexturePointer("ClassicSlacks"));
+    gamePlayer.initShirt(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()-138), recMan.getTexturePointer("ClassicSuit"));
 }
 
 Event Game::getCurrentEvent()
@@ -28,6 +32,7 @@ void Game::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
 //        std::cout << std::endl << "Do you agree with this or nah? y/n";
 //        std::cin >> input;
         testAnim.update();
+        gamePlayer.update();
 //        if(input == "y")
 //        {
 //            currentEvent = currentEvent.doNextEvent(true);
@@ -55,7 +60,10 @@ void Game::draw()
     if(currentState == GAME)
     {
         GUI.draw();
+
         testAnim.drawCurrentFrame();
+        gamePlayer.draw();
+
     }
     else if(currentState == MMENU)
     {
