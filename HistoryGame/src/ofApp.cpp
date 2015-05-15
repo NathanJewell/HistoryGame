@@ -9,6 +9,11 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     theGame->update(mousePos, clicked, pressed);
+    if(pressed != true)
+    {
+        clicked = false;
+    }
+    dragging = false;
 }
 
 //--------------------------------------------------------------

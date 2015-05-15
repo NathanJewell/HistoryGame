@@ -15,7 +15,7 @@ public:
     void setPosition(ofVec2f pos);
 
     ofVec2f getDrawSize();
-    void setDrawScale(ofVec2f);
+    void setDrawSize(ofVec2f);
 
 
     void update();

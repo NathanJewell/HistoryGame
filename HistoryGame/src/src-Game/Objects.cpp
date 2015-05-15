@@ -11,10 +11,10 @@ Object::Object(ofVec2f pos, ofTexture* tex, ofVec2f dSize)
     initObject(pos, tex, dSize);
 }
 
-void Object::initObject(ofVec2f pos, ofTexture* tex, ofVec2f dScale)
+void Object::initObject(ofVec2f pos, ofTexture* tex, ofVec2f dSize)
 {
     objectTexture = tex;
-    setDrawScale(dScale);
+    setDrawSize(dSize);
     setPosition(pos);
 
 }
@@ -36,7 +36,6 @@ ofVec2f Object::getPosition()
 void Object::setPosition(ofVec2f pos)
 {
     position = pos;
-    std::cout << position.x << ", " << position.y << std::endl;
     drawPosition = ofVec2f(position.x-(objectTexture->getWidth()/2), position.y-(objectTexture->getHeight()/2));
 }
 
@@ -45,9 +44,16 @@ ofVec2f Object::getDrawSize()
     return drawSize;
 }
 
-void Object::setDrawScale(ofVec2f dScale)
+void Object::setDrawSize(ofVec2f dSize)
 {
-    drawSize = ofVec2f(objectTexture->getWidth()*dScale.x, objectTexture->getHeight()*dScale.y);
+    if(dSize == ofVec2f(0, 0))
+    {
+        drawSize = ofVec2f(objectTexture->getWidth(), objectTexture->getHeight());
+    }
+    else
+    {
+        drawSize = dSize;
+    }
 }
 
 void Object::update()

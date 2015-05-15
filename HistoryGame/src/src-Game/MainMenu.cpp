@@ -324,10 +324,6 @@ bool MainMenu::update(ofVec2f& mousePos, bool& clicked, bool& pressed) // In Upd
 {
     if (active == true)
     {
-
-
-
-
         Exit->setPosition(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()* 3/4));
         OptionsBut->setPosition(ofVec2f(ofGetWindowWidth()/2, 2*ofGetWindowHeight()/5));
         CreditsBut->setPosition(ofVec2f(ofGetWindowWidth()/2, 3*ofGetWindowHeight()/5));
@@ -338,7 +334,7 @@ bool MainMenu::update(ofVec2f& mousePos, bool& clicked, bool& pressed) // In Upd
 
 
         Manager->update(mousePos, clicked, pressed); // and finally, and most importantly, we update the manager
-
+        std::cout << mousePos.x << ", " << mousePos.y << std::endl;
         double tmp = VolumeSlider->getEventDataInt();
         ofSoundSetVolume(tmp/100);
 

@@ -19,17 +19,17 @@ void Player::draw()
 
 void Player::initHat(ofVec2f pos, ofTexture* tex)
 {
-    hat.initObject(pos, tex, ofVec2f(2, 2));
+    hat.initObject(pos, tex, ofVec2f(0, 0));
 }
 
 void Player::initPant(ofVec2f pos, ofTexture* tex)
 {
-    pants.initObject(pos, tex, ofVec2f(2, 2));
+    pants.initObject(pos, tex, ofVec2f(0, 0));
 }
 
 void Player::initShirt(ofVec2f pos, ofTexture* tex)
 {
-    shirt.initObject(pos, tex, ofVec2f(2, 2));
+    shirt.initObject(pos, tex, ofVec2f(0, 0));
 }
 
 void Player::setHatTexture(ofTexture* newT)

@@ -10,7 +10,7 @@ public:
 
     void update();
     void draw();
-
+    void initBG(ofVec2f pos, ofTexture*, ofVec2f dSize);
     void setBGTexture(ofTexture* newTex);
 //    void setPERTexture(ofTexture* newTex)
 //    void setPELTexture(ofTexture* newTex)

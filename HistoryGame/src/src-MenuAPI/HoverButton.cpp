@@ -64,9 +64,8 @@ std::string HoverButton::getButtonTextString()
 void HoverButton::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
 {
     clickedComp[0] = clickedComp[1];
-
-
     //test to see if the mouse is clicked
+        std::cout << mousePos.x << ", " << mousePos.y << std::endl;
     if(clicked == true and nowPressedOff == false)
     {
 
@@ -117,6 +116,7 @@ void HoverButton::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
         }
         else//if the points not outside its inside
         {
+            std::cout << "here2" << std::endl;
             nowHovered = true; //if it's hovered and inside the button, the button is hovered
         }
     }
