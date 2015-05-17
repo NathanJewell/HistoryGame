@@ -54,3 +54,18 @@ int Event::getDate()
     return date;
 }
 
+int Event::getNextEventNum(bool which)
+{
+    if(which)
+    {
+        return yesEventNum;
+    }
+    return noEventNum;oi
+}
+
+std::vector<std::string> getRoomTextureData()
+{
+    return roomTextureData;
+}
+
+

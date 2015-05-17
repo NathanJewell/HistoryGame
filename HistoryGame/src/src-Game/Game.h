@@ -14,6 +14,7 @@ public:
     Game(int startingEvent);
     Event getCurrentEvent();
     void setCurrentEvent(Event e);
+    void adjustRoomToEvent();
 
     void update(ofVec2f&, bool&, bool&);
     void draw();

@@ -10,7 +10,7 @@ Game::Game(int startingEvent)
     gamePlayer.initHat(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()-138), recMan.getTexturePointer("ClassicHat"));
     gamePlayer.initPant(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()-10), recMan.getTexturePointer("ClassicSlacks"));
     gamePlayer.initShirt(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()-74), recMan.getTexturePointer("ClassicSuit"));
-    gameRoom.initBG(ofVec2f((ofGetWindowHeight()/2), (ofGetWindowHeight()/2)), recMan.getTexturePointer("CongressModern"), ofVec2f(ofGetWindowWidth(), ofGetWindowHeight()));
+    gameRoom.initBG(ofVec2f((ofGetWindowHeight()/2)-256-32, (ofGetWindowHeight()/2)-256-32), recMan.getTexturePointer("CongressModern"), ofVec2f(ofGetWindowWidth(), ofGetWindowHeight()));
 }
 
 Event Game::getCurrentEvent()
@@ -25,25 +25,21 @@ void Game::setCurrentEvent(Event e)
 
 void Game::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
 {
-
     if(currentState == GAME)
     {
-        GUI.update(mousePos, pressed, clicked);
-//        std::string input;
-//        std::cout << currentEvent.getName() << ", " << currentEvent.getDate() << ": " << std::endl << currentEvent.getDescription();
-//        std::cout << std::endl << "Do you agree with this or nah? y/n";
-//        std::cin >> input;
+        eventState = GUI.update(mousePos, pressed, clicked);    //0 is no 1 is yes 3 is nothing
+        if(eventState == 0)
+        {
+            currentEvent.doNextEvent(false);
+            adjustRoomToEvent();
+        }
+        else if(eventState == 1)
+        {
+            currentEvent.doNextEvent(true);
+            adjustRoomToEvent();
+        }
         testAnim.update();
         gamePlayer.update();
-//        if(input == "y")
-//        {
-//            currentEvent = currentEvent.doNextEvent(true);
-//        }
-//        else if(input == "n")
-//        {
-//            currentEvent = currentEvent.doNextEvent(false);
-//        }
-
     }
     else if(currentState == MMENU)
     {
@@ -52,26 +48,42 @@ void Game::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
             currentState = GAME;
         }
     }
-
-
-
 }
 
 void Game::draw()
 {
     if(currentState == GAME)
     {
-                gameRoom.draw();
-
-
+        gameRoom.draw();
         testAnim.drawCurrentFrame();
         gamePlayer.draw();
-            GUI.draw();
-
-
+        GUI.draw();
     }
     else if(currentState == MMENU)
     {
         mainMenu.draw();
+    }
+}
+
+void adjustRoomToEvent()
+{
+    std::vector<std::string> roomData = currentEvent.getRoomTextureData();
+    for(int ii =0; ii<roomData.size(); ii++)
+    {
+        if(!roomData[ii].contains("same") && !roomData[ii].contains("&&&"))
+        {
+            switch(ii)
+            {
+            case 0:
+                gameRoom.setBGTexture(recMaxs
+                                      n.getTexturePointer(roomData[ii])); //example
+            case 1:
+
+            case 2:
+
+            case 3:
+                //continue for all room data things
+            }
+        }
     }
 }
