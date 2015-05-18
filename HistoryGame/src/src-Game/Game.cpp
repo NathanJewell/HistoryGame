@@ -7,10 +7,10 @@ Game::Game(int startingEvent)
     gamePlayer.initHat(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()-138), recMan.getTexturePointer("ClassicHat"));
     gamePlayer.initPant(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()-10), recMan.getTexturePointer("ClassicSlacks"));
     gamePlayer.initShirt(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()-74), recMan.getTexturePointer("ClassicSuit"));
-    gameRoom.initBG(ofVec2f((ofGetWindowWidth()/2)-256-32, (ofGetWindowHeight()/2)), recMan.getTexturePointer("CongressModern"), ofVec2f(ofGetWindowWidth(), ofGetWindowHeight()));
+    gameRoom.initBG(ofVec2f(240,135), recMan.getTexturePointer("CongressModern"), ofVec2f(ofGetWindowWidth(), ofGetWindowHeight()));
     gameRoom.initPERT(ofVec2f((ofGetWindowWidth()/3)*2, (ofGetWindowHeight()/2)), recMan.getTexturePointer("DefaultPicRight"), ofVec2f(0, 0));
     gameRoom.initPELT(ofVec2f((ofGetWindowWidth()/3), (ofGetWindowHeight()/2)), recMan.getTexturePointer("DefaultPicLeft"), ofVec2f(0, 0));
-    gameRoom.initFlag(ofVec2f(900, 500), recMan.getTexturePointer("MuricanFlag"), ofVec2f(300, 400));
+    gameRoom.initFlag(ofVec2f(ofGetWindowWidth()/2-112, 170), recMan.getTexturePointer("MuricanFlag"), ofVec2f(300, 400));
     currentEvent = loadEvent(startingEvent);    //load first event of chain
     currentState = MMENU;
 
@@ -43,7 +43,6 @@ void Game::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
             currentEvent.doNextEvent(true);
             adjustRoomToEvent();
         }
-        testAnim.update();
         gamePlayer.update();
     }
     else if(currentState == MMENU)
@@ -60,7 +59,6 @@ void Game::draw()
     if(currentState == GAME)
     {
         gameRoom.draw();
-        testAnim.drawCurrentFrame();
         gamePlayer.draw();
         GUI.draw();
     }
