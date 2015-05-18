@@ -17,12 +17,12 @@ public:
     int getDate();
     int getNextEventNum(bool which);
     std::vector<std::string> getRoomTextureData();
-
+    std::vector<std::string> roomTextureData;
 private:
     int thisEventNum, yesEventNum, noEventNum;  //ID numbers for this event and its following events
     std::string name, description, roomType;
     int date;
-    std::vector<std::string> roomTextureData;
+
 };
 
 inline std::vector<std::string> loadEventFile(int eventNum)
@@ -52,6 +52,7 @@ inline Event loadEvent(int eventNum)
     {
         parseLineToData<std::string>(fileLines[ii], fileLines[ii], "=", true);
     }
+    std::cout << " swag" << fileLines[7] << std::endl;
     Event tempEvent(stringToType<int>(fileLines[0]),
                     stringToType<int>(fileLines[1]),
                     stringToType<int>(fileLines[2]),
@@ -59,6 +60,7 @@ inline Event loadEvent(int eventNum)
                     fileLines[4],
                     fileLines[5],
                     stringToType<int>(fileLines[6]));
+
     if(fileLines[7]=="ROOM")
     {
         for(int ii =7; ii<fileLines.size();ii++)

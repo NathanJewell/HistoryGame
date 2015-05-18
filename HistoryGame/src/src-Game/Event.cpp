@@ -60,10 +60,10 @@ int Event::getNextEventNum(bool which)
     {
         return yesEventNum;
     }
-    return noEventNum;oi
+    return noEventNum;
 }
 
-std::vector<std::string> getRoomTextureData()
+std::vector<std::string> Event::getRoomTextureData()
 {
     return roomTextureData;
 }

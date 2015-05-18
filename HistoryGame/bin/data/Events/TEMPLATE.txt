@@ -9,3 +9,4 @@ date =
 bg=$$$
 pic1=commie
 pic=$$$
+flag=

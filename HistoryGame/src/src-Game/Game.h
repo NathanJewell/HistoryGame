@@ -32,4 +32,6 @@ private:
     Room gameRoom;
     Player gamePlayer;
 
+    int eventState;
+
 };

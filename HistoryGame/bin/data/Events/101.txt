@@ -5,3 +5,4 @@ name = ARTICLES?
 description = This is the description
 roomType = Continental
 date = 1430
+=SAME

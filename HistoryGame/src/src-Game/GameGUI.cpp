@@ -5,13 +5,13 @@ GameGUI::GameGUI()
     Manager = new MenuManager; // creates a new Menu manager
     Menu GUI(ofVec2f(0,0)); // creating the options menu
 
-    Manager->addTexture("YesExitNormal", "YesButtonNormal.png");
-    Manager->addTexture("YesExitPressed", "YesButtonPressed.png");
-    Manager->addTexture("YesExitHovered", "YesButtonHovered.png");
+    Manager->addTexture("YesExitNormal", "Yea.png");
+    Manager->addTexture("YesExitPressed", "YeaPressed.png");
+    Manager->addTexture("YesExitHovered", "YeaHovered.png");
 
-    Manager->addTexture("NoExitNormal", "NoButtonNormal.png");
-    Manager->addTexture("NoExitPressed", "NoButtonPressed.png");
-    Manager->addTexture("NoExitHovered", "NoButtonHovered.png");
+    Manager->addTexture("NoExitNormal", "Nay.png");
+    Manager->addTexture("NoExitPressed", "NayPressed.png");
+    Manager->addTexture("NoExitHovered", "NayHovered.png");
 
     MenuEntity *Yes; //exit game button
     Yes = new HoverButton(

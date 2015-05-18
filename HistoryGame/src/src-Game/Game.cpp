@@ -2,15 +2,19 @@
 
 Game::Game(int startingEvent)
 {
-    currentEvent = loadEvent(startingEvent);    //load first event of chain
-    currentState = MMENU;
     recMan.loadFilesFromDirectory("C:\\OpenFrameworks\\apps\\HistoryGame\\HistoryGame\\bin\\data\\historyTextures");
-    testAnim.init(recMan.getTexturePointer("testSheet"), ofVec2f(128,128), ofVec2f(300, 300), 1, 5, true);
-    //gameRoom.setBGTexture(recMan.getTexturePointer("CongressModern"));
+
     gamePlayer.initHat(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()-138), recMan.getTexturePointer("ClassicHat"));
     gamePlayer.initPant(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()-10), recMan.getTexturePointer("ClassicSlacks"));
     gamePlayer.initShirt(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()-74), recMan.getTexturePointer("ClassicSuit"));
-    gameRoom.initBG(ofVec2f((ofGetWindowHeight()/2)-256-32, (ofGetWindowHeight()/2)-256-32), recMan.getTexturePointer("CongressModern"), ofVec2f(ofGetWindowWidth(), ofGetWindowHeight()));
+    gameRoom.initBG(ofVec2f((ofGetWindowWidth()/2)-256-32, (ofGetWindowHeight()/2)), recMan.getTexturePointer("CongressModern"), ofVec2f(ofGetWindowWidth(), ofGetWindowHeight()));
+    gameRoom.initPERT(ofVec2f((ofGetWindowWidth()/3)*2, (ofGetWindowHeight()/2)), recMan.getTexturePointer("DefaultPicRight"), ofVec2f(0, 0));
+    gameRoom.initPELT(ofVec2f((ofGetWindowWidth()/3), (ofGetWindowHeight()/2)), recMan.getTexturePointer("DefaultPicLeft"), ofVec2f(0, 0));
+    gameRoom.initFlag(ofVec2f(900, 500), recMan.getTexturePointer("MuricanFlag"), ofVec2f(300, 400));
+    currentEvent = loadEvent(startingEvent);    //load first event of chain
+    currentState = MMENU;
+
+
 }
 
 Event Game::getCurrentEvent()
@@ -28,6 +32,7 @@ void Game::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
     if(currentState == GAME)
     {
         eventState = GUI.update(mousePos, pressed, clicked);    //0 is no 1 is yes 3 is nothing
+        eventState = 3;
         if(eventState == 0)
         {
             currentEvent.doNextEvent(false);
@@ -65,24 +70,23 @@ void Game::draw()
     }
 }
 
-void adjustRoomToEvent()
+void Game::adjustRoomToEvent()
 {
     std::vector<std::string> roomData = currentEvent.getRoomTextureData();
     for(int ii =0; ii<roomData.size(); ii++)
     {
-        if(!roomData[ii].contains("same") && !roomData[ii].contains("&&&"))
+        if(roomData[ii]=="same" && roomData[ii]=="&&&")
         {
             switch(ii)
             {
             case 0:
-                gameRoom.setBGTexture(recMaxs
-                                      n.getTexturePointer(roomData[ii])); //example
+                gameRoom.setBGTexture(recMan.getTexturePointer(roomData[ii])); //example
             case 1:
-
+                gameRoom.setPIRTTexture(recMan.getTexturePointer(roomData[ii]));
             case 2:
-
+                gameRoom.setPILTTexture(recMan.getTexturePointer(roomData[ii]));
             case 3:
-                //continue for all room data things
+                gameRoom.setFlagTexture(recMan.getTexturePointer(roomData[ii]));
             }
         }
     }
