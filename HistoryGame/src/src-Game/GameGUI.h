@@ -24,7 +24,7 @@ private:
    HoverButton* YesButton; // pointer to exit button
    HoverButton* NoButton; // pointer to options button, etc...
 
-   TextBox* popupText;
+   TextBox* PopupText;
    HoverButton* popupButton;
 };
 

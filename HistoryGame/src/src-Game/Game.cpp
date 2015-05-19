@@ -13,7 +13,7 @@ Game::Game(int startingEvent)
     gameRoom.initFlag(ofVec2f(ofGetWindowWidth()/2-112, 170), recMan.getTexturePointer("MuricanFlag"), ofVec2f(300, 400));
     currentEvent = loadEvent(startingEvent);    //load first event of chain
     currentState = MMENU;
-    //GUI.setPopupText(currentEvent.getDescription());
+    std::cout << currentEvent.getDescription() << std::endl;
     GUI.enablePopup();
 
 
@@ -34,14 +34,15 @@ void Game::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
     if(currentState == GAME)
     {
         eventState = GUI.update(mousePos, pressed, clicked);    //0 is no 1 is yes 3 is nothing
+        GUI.setPopupText(currentEvent.getDescription());
         if(eventState == 0)
         {
-            currentEvent.doNextEvent(false);
+            currentEvent = currentEvent.doNextEvent(false);
             adjustRoomToEvent();
         }
         else if(eventState == 1)
         {
-            currentEvent.doNextEvent(true);
+            currentEvent = currentEvent.doNextEvent(true);
             adjustRoomToEvent();
         }
         gamePlayer.update();
