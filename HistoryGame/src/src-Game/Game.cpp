@@ -34,7 +34,6 @@ void Game::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
     if(currentState == GAME)
     {
         eventState = GUI.update(mousePos, pressed, clicked);    //0 is no 1 is yes 3 is nothing
-        eventState = 3;
         if(eventState == 0)
         {
             currentEvent.doNextEvent(false);
@@ -75,7 +74,7 @@ void Game::adjustRoomToEvent()
     std::vector<std::string> roomData = currentEvent.getRoomTextureData();
     for(int ii =0; ii<roomData.size(); ii++)
     {
-        if(roomData[ii]=="same" && roomData[ii]=="&&&")
+        if(roomData[ii]!="SAME" && roomData[ii]!="&&&")
         {
             switch(ii)
             {

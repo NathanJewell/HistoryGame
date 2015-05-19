@@ -63,7 +63,7 @@ inline Event loadEvent(int eventNum)
 
     if(fileLines[7]=="ROOM")
     {
-        for(int ii =7; ii<fileLines.size();ii++)
+        for(int ii =8; ii<fileLines.size();ii++)
         {
             tempEvent.roomTextureData.push_back(fileLines[ii]);
         }

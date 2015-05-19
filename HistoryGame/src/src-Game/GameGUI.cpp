@@ -101,14 +101,14 @@ void GameGUI::draw()
 int GameGUI::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
 {
     Manager->update(mousePos, clicked, pressed);
-    if(YesButton->getEventDataInt() > 2)
-    {
-        YesButton->setClicked(false);
-        return 0;
-    }
-    else if(NoButton->getEventDataInt() > 2)
+    if(NoButton->getEventDataInt() > 2)
     {
         NoButton->setClicked(false);
+        return 0;
+    }
+    else if(YesButton->getEventDataInt() > 2)
+    {
+        YesButton->setClicked(false);
         return 1;
     }
 
