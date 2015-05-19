@@ -4,6 +4,14 @@ GameGUI::GameGUI()
 {
     Manager = new MenuManager; // creates a new Menu manager
     Menu GUI(ofVec2f(0,0)); // creating the options menu
+    Menu popup(ofVec2f(0, 0));
+
+
+    Manager->addTexture("OKNormal", "OK.png");
+    Manager->addTexture("OKPressed", "OKPressed.png");
+    Manager->addTexture("OKHovered", "OKHovered.png");
+    Manager->addTexture("PopupBG", "PopupBG.png");
+    Manager->addFont("PopupFont", "Barquet.ttf", 24);
 
     Manager->addTexture("YesExitNormal", "Yea.png");
     Manager->addTexture("YesExitPressed", "YeaPressed.png");
@@ -35,13 +43,49 @@ GameGUI::GameGUI()
                             Manager->getTexturePointer("NoExitPressed")
                                     );
 
+    MenuEntity *popupText;
+    popupText = new TextBox(
+                            "SWAG",
+                            ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()/2),
+                            Manager->getFontPointer("PopupFont")
+                                );
+
+    MenuEntity *OKButton;
+    OKButton = new HoverButton(
+                            ofVec2f((ofGetWindowWidth()/2), (ofGetWindowHeight()/2)+100),
+                            Manager->getTexturePointer("OKNormal"),
+                            Manager->getTexturePointer("OKHovered"),
+                            Manager->getTexturePointer("OKPressed"),
+                            Manager->getTexturePointer("OKPressed"),
+                            Manager->getTexturePointer("OKPressed"),
+                            Manager->getTexturePointer("OKPressed")
+                                    );
+
+    MenuEntity *PopupBG;
+    PopupBG = new MenuBackground(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()/2),
+                                 Manager->getTexturePointer("PopupBG"),
+                                 false
+                                    );
+
     GUI.addEntity(*No, "NoButton");
     GUI.addEntity(*Yes, "YesButton");
 
+    popup.addEntity(*PopupBG, "BG");
+    popup.addEntity(*OKButton, "OKButton");
+    popup.addEntity(*popupText, "popupText");
+
+
+    Manager->addMenu(popup, "popupMenu");
     Manager->addMenu(GUI, "GUIMenu");
 
     GUIMenu = Manager->getMenuPointerByName("GUIMenu");
     GUIMenu->setActive();
+
+    PopupMenu = Manager->getMenuPointerByName("popupMenu");
+    PopupMenu->setInactive();
+
+    popupText = PopupMenu->getPointerToChildByName<TextBox>("popupText");
+    popupButton = PopupMenu->getPointerToChildByName<HoverButton>("OKButton");
 
     YesButton = GUIMenu->getPointerToChildByName<HoverButton>("YesButton");
     NoButton = GUIMenu->getPointerToChildByName<HoverButton>("NoButton");
@@ -54,10 +98,39 @@ void GameGUI::draw()
     Manager->draw();
 }
 
-bool GameGUI::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
+int GameGUI::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
 {
     Manager->update(mousePos, clicked, pressed);
-    std::cout << "yes: " << YesButton->getEventDataInt() << std::endl;
-    std::cout << "no: " << NoButton->getEventDataInt() << std::endl;
+    if(YesButton->getEventDataInt() > 2)
+    {
+        YesButton->setClicked(false);
+        return 0;
+    }
+    else if(NoButton->getEventDataInt() > 2)
+    {
+        NoButton->setClicked(false);
+        return 1;
+    }
 
+    if(PopupMenu->isActive())
+    {
+        if(popupButton->getEventDataInt() > 2)
+        {
+            popupButton->setClicked(false);
+            PopupMenu->setInactive();
+        }
+    }
+
+    return 3;
+
+}
+
+void GameGUI::setPopupText(std::string newText)
+{
+    popupText->setText("Hottie");
+}
+
+void GameGUI::enablePopup()
+{
+    PopupMenu->setActive();
 }

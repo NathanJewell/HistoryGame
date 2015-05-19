@@ -2,7 +2,7 @@
 
 TextBox::TextBox(std::string str, ofVec2f posi, ofTrueTypeFont& f)
 {
-    text = str;
+    setText(str);
     position = posi;
     font = &f;
 }

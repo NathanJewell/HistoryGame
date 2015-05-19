@@ -13,6 +13,8 @@ Game::Game(int startingEvent)
     gameRoom.initFlag(ofVec2f(ofGetWindowWidth()/2-112, 170), recMan.getTexturePointer("MuricanFlag"), ofVec2f(300, 400));
     currentEvent = loadEvent(startingEvent);    //load first event of chain
     currentState = MMENU;
+    //GUI.setPopupText(currentEvent.getDescription());
+    GUI.enablePopup();
 
 
 }
