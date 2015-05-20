@@ -72,7 +72,7 @@ GameGUI::GameGUI()
 
     popup.addEntity(*PopupBG, "BG");
     popup.addEntity(*popupText, "popupText");
-    popup.addEntity(*OKButton, "OKButton");
+    GUI.addEntity(*OKButton, "OKButton");
 
 
     Manager->addMenu(popup, "popupMenu");
@@ -85,7 +85,7 @@ GameGUI::GameGUI()
     PopupMenu->setInactive();
 
     PopupText = PopupMenu->getPointerToChildByName<TextBox>("popupText");
-    popupButton = PopupMenu->getPointerToChildByName<HoverButton>("OKButton");
+    popupButton = GUIMenu->getPointerToChildByName<HoverButton>("OKButton");
 
     YesButton = GUIMenu->getPointerToChildByName<HoverButton>("YesButton");
     NoButton = GUIMenu->getPointerToChildByName<HoverButton>("NoButton");
@@ -103,21 +103,32 @@ int GameGUI::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
     Manager->update(mousePos, clicked, pressed);
     if(NoButton->getEventDataInt() > 2)
     {
-        NoButton->setClicked(false);
+        if(clicked)
+        {
+
+                    NoButton->setClicked(false);
+
         return 0;
+        }
+
     }
     else if(YesButton->getEventDataInt() > 2)
     {
-        YesButton->setClicked(false);
+        if(clicked)
+        {
+                    YesButton->setClicked(false);
+
         return 1;
+        }
+
     }
 
     if(PopupMenu->isActive())
     {
-        if(popupButton->getEventDataInt() > 2)
+        if(popupButton->getEventDataInt() > 3)
         {
             popupButton->setClicked(false);
-            PopupMenu->setInactive();
+            //PopupMenu->setInactive();
         }
     }
 
@@ -127,7 +138,6 @@ int GameGUI::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
 
 void GameGUI::setPopupText(std::string newText)
 {
-    std::cout << "noobs:" << newText << std::endl;
     PopupText->newSetText(newText);
 }
 
