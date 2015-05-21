@@ -33,7 +33,7 @@ void Game::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
 {
     if(currentState == GAME)
     {
-        eventState = GUI.update(mousePos, pressed, clicked);    //0 is no 1 is yes 3 is nothing
+        eventState = GUI.update(mousePos, clicked, pressed);    //0 is no 1 is yes 3 is nothing
         GUI.setPopupText(currentEvent.getDescription());
         if(eventState == 0)
         {

@@ -38,7 +38,17 @@ void parseLineToData(T& putin, std::string line, std::string toFind, bool ignore
     }
 
     std::string output = line.substr(loc);      //get the string from the end of the sequence+
-
+    for(int i = 0; i<output.size();i++)
+    {
+        if(output[i] == '/' && output[i+1] == 'n')
+        {
+             std::string tmp = output.substr(0, i-1);
+             tmp+= "\n";
+             tmp+=output.substr(i+2);
+             output = tmp;
+             i++;
+        }
+    }
     try
     {
         putin=output;

@@ -52,13 +52,13 @@ GameGUI::GameGUI()
 
     MenuEntity *OKButton;
     OKButton = new HoverButton(
-                            ofVec2f((ofGetWindowWidth()/2), (ofGetWindowHeight()/2)+100),
-                            Manager->getTexturePointer("OKNormal"),
-                            Manager->getTexturePointer("OKHovered"),
-                            Manager->getTexturePointer("OKPressed"),
-                            Manager->getTexturePointer("OKPressed"),
-                            Manager->getTexturePointer("OKPressed"),
-                            Manager->getTexturePointer("OKPressed")
+                            ofVec2f(200, 200),
+                            Manager->getTexturePointer("NoExitNormal"),
+                            Manager->getTexturePointer("NoExitHovered"),
+                            Manager->getTexturePointer("NoExitPressed"),
+                            Manager->getTexturePointer("NoExitPressed"),
+                            Manager->getTexturePointer("NoExitPressed"),
+                            Manager->getTexturePointer("NoExitPressed")
                                     );
 
     MenuEntity *PopupBG;
@@ -122,16 +122,17 @@ int GameGUI::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
         }
 
     }
+    //-----------------logic for popup toggle---------------------
 
-    if(PopupMenu->isActive())
+    if(popupButton->getClicked())
     {
-        if(popupButton->getEventDataInt() > 3)
-        {
-            popupButton->setClicked(false);
-            //PopupMenu->setInactive();
-        }
-    }
+        PopupMenu->setActive();
 
+    }
+    else
+    {
+        PopupMenu->setInactive();
+    }
     return 3;
 
 }

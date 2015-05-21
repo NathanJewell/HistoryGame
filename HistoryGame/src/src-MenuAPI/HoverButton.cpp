@@ -249,3 +249,8 @@ void HoverButton::setPosition(ofVec2f v)
 {
     position = v;
 }
+
+bool HoverButton::getClicked()
+{
+    return nowClicked;
+}

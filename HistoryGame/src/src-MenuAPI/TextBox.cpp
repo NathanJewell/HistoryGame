@@ -55,8 +55,7 @@ int TextBox::getHeight()
 void TextBox::newSetText(std::string t)
 {
     std::string temp = t;
-    std::cout << "dafd" << temp << std::endl;
     text = temp;
-    std::cout << "dafd" << temp << std::endl;
+
 }
 

@@ -31,6 +31,7 @@ public:
 
 
     void setClicked(bool b); // set the clicked value manually
+    bool getClicked();
     int getEventDataInt();//return 0-3 (0 = nothing, 1 = hovered, 2 = pressed, 3 = clicked, 4 = clicked and hovered, 5 = pressed and hovered) value
     bool getEventDataBool();
 
