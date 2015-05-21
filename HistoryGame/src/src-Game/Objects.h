@@ -9,7 +9,7 @@ public:
     Object(ofVec2f pos, ofTexture* tex, ofVec2f dSize);
     void initObject(ofVec2f pos, ofTexture* tex, ofVec2f dSize);
     ofTexture* getTexture();
-    void setTexture(ofTexture*);
+    void setTexture(ofTexture*, bool);
 
     ofVec2f getPosition();
     void setPosition(ofVec2f pos);

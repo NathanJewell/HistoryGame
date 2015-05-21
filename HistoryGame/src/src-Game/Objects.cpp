@@ -23,9 +23,14 @@ ofTexture* Object::getTexture()
     return objectTexture;
 }
 
-void Object::setTexture(ofTexture* newTexture)
+void Object::setTexture(ofTexture* newTexture, bool fitSize)
 {
     objectTexture = newTexture;
+    if(fitSize)
+    {
+        setDrawSize(ofVec2f(0, 0));
+    }
+
 }
 
 ofVec2f Object::getPosition()
@@ -73,7 +78,7 @@ void Object::draw()     //draws object centered on position
 AnimObject::AnimObject(ofVec2f pos, ofTexture* tex, ofVec2f texSize, int FPS, int numFrames, bool alwaysOn)
 {
     setPosition(pos);
-    setTexture(tex);
+    setTexture(tex, false);
     bgIsAnim = false;
     objectAnim.init(tex, texSize, position, FPS, numFrames, alwaysOn);
 }
@@ -81,7 +86,7 @@ AnimObject::AnimObject(ofVec2f pos, ofTexture* tex, ofVec2f texSize, int FPS, in
 AnimObject::AnimObject(ofVec2f pos, ofTexture* tex,ofTexture* animTex, ofVec2f texSize, int FPS, int numFrames, bool alwaysOn)
 {
     setPosition(pos);
-    setTexture(tex);
+    setTexture(tex, false);
     bgIsAnim = true;
     objectAnim.init(animTex, texSize, position, FPS, numFrames, alwaysOn);
 }

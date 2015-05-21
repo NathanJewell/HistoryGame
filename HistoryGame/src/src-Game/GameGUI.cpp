@@ -7,9 +7,10 @@ GameGUI::GameGUI()
     Menu popup(ofVec2f(0, 0));
 
 
-    Manager->addTexture("OKNormal", "OK.png");
-    Manager->addTexture("OKPressed", "OKPressed.png");
-    Manager->addTexture("OKHovered", "OKHovered.png");
+    Manager->addTexture("OpenHovered", "popupHovered.png");
+    Manager->addTexture("OpenClickedHovered", "popupClickedHovered.png");
+    Manager->addTexture("OpenClicked", "popupClicked.png");
+    Manager->addTexture("OpenNormal", "popup.png");
     Manager->addTexture("PopupBG", "PopupBG.png");
     Manager->addFont("PopupFont", "Barquet.ttf", 24);
 
@@ -53,6 +54,16 @@ GameGUI::GameGUI()
     MenuEntity *OKButton;
     OKButton = new HoverButton(
                             ofVec2f(200, 200),
+                            Manager->getTexturePointer("OpenNormal"),
+                            Manager->getTexturePointer("OpenHovered"),
+                            Manager->getTexturePointer("OpenClicked"),
+                            Manager->getTexturePointer("OpenClicked"),
+                            Manager->getTexturePointer("OpenClickedHovered"),
+                            Manager->getTexturePointer("OpenClickedHovered")
+                                    );
+    MenuEntity *ShopButton;
+    ShopButton = new HoverButton(
+                            ofVec2f(400, 200),
                             Manager->getTexturePointer("NoExitNormal"),
                             Manager->getTexturePointer("NoExitHovered"),
                             Manager->getTexturePointer("NoExitPressed"),
@@ -69,6 +80,7 @@ GameGUI::GameGUI()
 
     GUI.addEntity(*No, "NoButton");
     GUI.addEntity(*Yes, "YesButton");
+    GUI.addEntity(*ShopButton, "ShopButton");
 
     popup.addEntity(*PopupBG, "BG");
     popup.addEntity(*popupText, "popupText");
@@ -89,6 +101,7 @@ GameGUI::GameGUI()
 
     YesButton = GUIMenu->getPointerToChildByName<HoverButton>("YesButton");
     NoButton = GUIMenu->getPointerToChildByName<HoverButton>("NoButton");
+    shopButton = GUIMenu->getPointerToChildByName<HoverButton>("ShopButton");
 
 
 }

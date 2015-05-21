@@ -26,5 +26,6 @@ private:
 
    TextBox* PopupText;
    HoverButton* popupButton;
+   HoverButton* shopButton;
 };
 

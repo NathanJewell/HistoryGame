@@ -34,15 +34,15 @@ void Player::initShirt(ofVec2f pos, ofTexture* tex)
 
 void Player::setHatTexture(ofTexture* newT)
 {
-    hat.setTexture(newT);
+    hat.setTexture(newT, true);
 }
 void Player::setPantTexture(ofTexture* newT)
 {
-    pants.setTexture(newT);
+    pants.setTexture(newT, true);
 }
 void Player::setShirtTexture(ofTexture* newT)
 {
-    shirt.setTexture(newT);
+    shirt.setTexture(newT, true);
 }
 
 void Player::addMoney(int amount)

@@ -12,6 +12,7 @@ Game::Game(int startingEvent)
     gameRoom.initPELT(ofVec2f((ofGetWindowWidth()/3), (ofGetWindowHeight()/2)), recMan.getTexturePointer("DefaultPicLeft"), ofVec2f(0, 0));
     gameRoom.initFlag(ofVec2f(ofGetWindowWidth()/2-112, 170), recMan.getTexturePointer("MuricanFlag"), ofVec2f(300, 400));
     currentEvent = loadEvent(startingEvent);    //load first event of chain
+    adjustRoomToEvent();
     currentState = MMENU;
     std::cout << currentEvent.getDescription() << std::endl;
     GUI.enablePopup();

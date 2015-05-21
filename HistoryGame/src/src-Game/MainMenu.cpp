@@ -37,7 +37,7 @@ MainMenu::MainMenu() // in the constructor, we create EVERYTHING in the main men
     Manager->addTexture("StartGameButtonPressed", "PlayButtonPressed.png");
     Manager->addTexture("StartGameButtonHovered", "PlayButtonHovered.png");
 
-    Manager->addTexture("CreditsBackground", "Credits(1).png");
+    Manager->addTexture("CreditsBackground", "Credits.png");
     Manager->addTexture("MainMenuBackground", "MainMenuBG.png");
     Manager->addTexture("PauseBackground", "PauseBackground.png");
 

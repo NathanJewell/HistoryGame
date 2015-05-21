@@ -27,22 +27,22 @@ void Room::initFlag(ofVec2f pos, ofTexture* tex, ofVec2f dSize)
 
 void Room::setBGTexture(ofTexture* newTex)
 {
-    roomBG.setTexture(newTex);
+    roomBG.setTexture(newTex, false);
 }
 
 void Room::setPIRTTexture(ofTexture* newTex)
 {
-    pictureRight.setTexture(newTex);
+    pictureRight.setTexture(newTex, true);
 }
 
 void Room::setPILTTexture(ofTexture* newTex)
 {
-    pictureLeft.setTexture(newTex);
+    pictureLeft.setTexture(newTex, true);
 }
 
 void Room::setFlagTexture(ofTexture* newTex)
 {
-    flag.setTexture(newTex);
+    flag.setTexture(newTex, false);
 }
 
 void Room::draw()
