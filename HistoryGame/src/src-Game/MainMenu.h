@@ -36,5 +36,8 @@ private:
     bool drawExplosion;
     ofTexture explosionTexture;
     ofVec2f mPos;
+    bool doSound;
+    int framesDone;
+    ofSoundPlayer explosionSound;
 };
 

@@ -247,6 +247,11 @@ MainMenu::MainMenu() // in the constructor, we create EVERYTHING in the main men
                                     );
     explosionTexture = Manager->getTexture("Explosion");
     drawExplosion = false;
+    explosionSound.loadSound("explosion.mp3");
+    explosionSound.setVolume(.5);
+    ofSoundSetVolume(.5);
+    explosionSound.setMultiPlay(true);
+
     /*------------------------------------------------------------------------------
     Done Making Buttons.
     Now we add the buttons to menus and the menus to Menu manager.
@@ -319,7 +324,19 @@ void MainMenu::draw() // in the draw function, all we do is call the manager's d
     }
     if(drawExplosion)
     {
+        framesDone++;
+        if(framesDone > 30)
+        {
+            framesDone = 0;
+            drawExplosion = false;
+        }
         explosionTexture.draw(mPos.x-explosionTexture.getWidth()/2, mPos.y-explosionTexture.getHeight()/2);
+        if(doSound)
+        {
+            explosionSound.play();
+            doSound = false;
+        }
+
     }
 }
 
@@ -400,12 +417,13 @@ bool MainMenu::update(ofVec2f& mousePos, bool& clicked, bool& pressed) // In Upd
 
          if(quitGameMenu->isActive() == true)
          {
+             std::exit(EXIT_SUCCESS);
              if (YesQuitBut->getEventDataInt() > 2)
              {
                  quitGameMenu->setInactive();
                  YesQuitBut->setClicked(false);
                  active = false;
-                 std::exit(EXIT_SUCCESS);
+
              }
              else if (NoQuitBut->getEventDataInt() > 2)
              {
@@ -422,6 +440,7 @@ bool MainMenu::update(ofVec2f& mousePos, bool& clicked, bool& pressed) // In Upd
         if(clicked)
         {
             drawExplosion = true;
+            doSound = true;
             mPos = mousePos;
         }
 
