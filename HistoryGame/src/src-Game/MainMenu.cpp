@@ -67,6 +67,7 @@ MainMenu::MainMenu() // in the constructor, we create EVERYTHING in the main men
     Manager->addTexture("QuitHovered", "QuitButtonHovered.png");
     Manager->addTexture("QuitPressed", "QuitButtonPressed.png");
 
+    Manager->addTexture("Explosion", "Explosion.png");
 
 
     //Here we add ALL of the fonts
@@ -144,7 +145,7 @@ MainMenu::MainMenu() // in the constructor, we create EVERYTHING in the main men
     // example for adding text
     MenuEntity *optionsButton; // options button
     optionsButton = new HoverButton(
-                            ofVec2f(ofGetWindowWidth()/2, 2*ofGetWindowHeight()/5),
+                            ofVec2f(2*ofGetWindowWidth()/5, ofGetWindowHeight()-250),
                             Manager->getTexturePointer("OptionsNormal"),           // adding textures, we have done this before...
                             Manager->getTexturePointer("OptionsHovered"),
                             Manager->getTexturePointer("OptionsPressed"),
@@ -159,7 +160,7 @@ MainMenu::MainMenu() // in the constructor, we create EVERYTHING in the main men
 
     MenuEntity *creditsButton; // Credits Button
     creditsButton = new HoverButton(
-                            ofVec2f(ofGetWindowWidth()/2, 3*ofGetWindowHeight()/5),
+                            ofVec2f(3*ofGetWindowWidth()/5, ofGetWindowHeight()-250),
                             Manager->getTexturePointer("CreditsNormal"),
                             Manager->getTexturePointer("CreditsHovered"),
                             Manager->getTexturePointer("CreditsPressed"),
@@ -171,7 +172,7 @@ MainMenu::MainMenu() // in the constructor, we create EVERYTHING in the main men
 
     MenuEntity *quitGameButton; // Quit Game Button
     quitGameButton = new HoverButton(
-                            ofVec2f(ofGetWindowWidth()/2, 4*ofGetWindowHeight()/5),
+                            ofVec2f(4*ofGetWindowWidth()/5, ofGetWindowHeight()-250),
                             Manager->getTexturePointer("QuitNormal"),
                             Manager->getTexturePointer("QuitHovered"),
                             Manager->getTexturePointer("QuitPressed"),
@@ -185,7 +186,7 @@ MainMenu::MainMenu() // in the constructor, we create EVERYTHING in the main men
 
     MenuEntity *SGButton; // Start Game Button
     SGButton = new HoverButton(
-                            ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()/5),
+                            ofVec2f(ofGetWindowWidth()/5, ofGetWindowHeight()-250),
                             Manager->getTexturePointer("StartGameButtonNormal"),
                             Manager->getTexturePointer("StartGameButtonHovered"),
                             Manager->getTexturePointer("StartGameButtonPressed"),
@@ -217,7 +218,7 @@ MainMenu::MainMenu() // in the constructor, we create EVERYTHING in the main men
                             Manager->getTexturePointer("DolphinBackground")
                                   );
 
-    MenuEntity *creditsBG; // options menu background
+    MenuEntity *creditsBG; // credits menu background
     creditsBG = new MenuBackground(
                             ofVec2f(ofGetWindowWidth()/2,ofGetWindowHeight()/2),
                             Manager->getTexturePointer("CreditsBackground")
@@ -244,7 +245,8 @@ MainMenu::MainMenu() // in the constructor, we create EVERYTHING in the main men
                             Manager->getTexturePointer("NoExitPressed"),
                             Manager->getTexturePointer("NoExitPressed")
                                     );
-
+    explosionTexture = Manager->getTexture("Explosion");
+    drawExplosion = false;
     /*------------------------------------------------------------------------------
     Done Making Buttons.
     Now we add the buttons to menus and the menus to Menu manager.
@@ -315,6 +317,10 @@ void MainMenu::draw() // in the draw function, all we do is call the manager's d
         ofSetColor(BrightnessSlider->getEventDataInt() * 2 + 100, BrightnessSlider->getEventDataInt() * 2 + 100, BrightnessSlider->getEventDataInt() * 2 + 100); // simple brightness changer
         Manager->draw();
     }
+    if(drawExplosion)
+    {
+        explosionTexture.draw(mPos.x-explosionTexture.getWidth()/2, mPos.y-explosionTexture.getHeight()/2);
+    }
 }
 
 
@@ -325,11 +331,11 @@ bool MainMenu::update(ofVec2f& mousePos, bool& clicked, bool& pressed) // In Upd
     if (active == true)
     {
         Exit->setPosition(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()* 3/4));
-        OptionsBut->setPosition(ofVec2f(ofGetWindowWidth()/2, 2*ofGetWindowHeight()/5));
-        CreditsBut->setPosition(ofVec2f(ofGetWindowWidth()/2, 3*ofGetWindowHeight()/5));
-        StartGameButton->setPosition(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()/5));
+        OptionsBut->setPosition(ofVec2f(ofGetWindowWidth()/5, ofGetWindowHeight()-250));
+        CreditsBut->setPosition(ofVec2f(2*ofGetWindowWidth()/5, ofGetWindowHeight()-250));
+        StartGameButton->setPosition(ofVec2f(4*ofGetWindowWidth()/5, ofGetWindowHeight()-250));
         CancelBut->setPosition(ofVec2f(ofGetWindowWidth()/2, 9*ofGetWindowHeight()/10));
-        QuitGameBut->setPosition(ofVec2f(ofGetWindowWidth()/2, 4*ofGetWindowHeight()/5));
+        QuitGameBut->setPosition(ofVec2f(3*ofGetWindowWidth()/5, ofGetWindowHeight()-250));
 
 
 
@@ -413,7 +419,11 @@ bool MainMenu::update(ofVec2f& mousePos, bool& clicked, bool& pressed) // In Upd
 
 
 
-
+        if(clicked)
+        {
+            drawExplosion = true;
+            mPos = mousePos;
+        }
 
         return false;
 

@@ -32,5 +32,9 @@ private:
    HoverButton* NoQuitBut;
     Slider* BrightnessSlider;
     Slider* VolumeSlider;
+
+    bool drawExplosion;
+    ofTexture explosionTexture;
+    ofVec2f mPos;
 };
 

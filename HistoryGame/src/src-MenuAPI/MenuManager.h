@@ -11,6 +11,7 @@ public:
     void addTexture(std::string name, ofTexture tex);
     ofTexture& getTexturePointer(std::string tex);//retrieve texture reference by name
     ofTexture& getTexturePointer(int tex);//retrieve texture reference my position in array
+    ofTexture getTexture(std::string name); //return copy of texture;
     void reloadTexture(std::string, std::string);
 
     void addFont(std::string name, std::string fileName, int fontSize);//add TrueTypeFont to array by filename

@@ -19,6 +19,11 @@ ofTexture& MenuManager::getTexturePointer(int num)
     return textures[num];
 }
 
+ofTexture MenuManager::getTexture(std::string tex)
+{
+    return textures[textureNames[tex]];
+}
+
 void MenuManager::addFont(std::string name, std::string fileName, int fontSize)
 {
     ofTrueTypeFont tmp;//create temporary TTF
