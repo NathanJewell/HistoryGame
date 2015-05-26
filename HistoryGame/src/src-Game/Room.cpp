@@ -5,6 +5,12 @@ Room::Room()
 
 }
 
+void Room::initFrames(ofVec2f lPos, ofVec2f rPos, ofTexture* tex, ofVec2f dSize)
+{
+    frameL.initObject(lPos, tex, dSize);
+    frameR.initObject(rPos, tex, dSize);
+}
+
 void Room::initBG(ofVec2f pos, ofTexture* tex, ofVec2f dSize)
 {
     roomBG.initObject(pos, tex, dSize);
@@ -25,6 +31,11 @@ void Room::initFlag(ofVec2f pos, ofTexture* tex, ofVec2f dSize)
     flag.initObject(pos,tex,dSize);
 }
 
+void Room::setFrameTextures(ofTexture* newTex)
+{
+    frameL.setTexture(newTex, true);
+    frameR.setTexture(newTex, true);
+}
 void Room::setBGTexture(ofTexture* newTex)
 {
     roomBG.setTexture(newTex, false);
@@ -32,12 +43,12 @@ void Room::setBGTexture(ofTexture* newTex)
 
 void Room::setPIRTTexture(ofTexture* newTex)
 {
-    pictureRight.setTexture(newTex, true);
+    pictureRight.setTexture(newTex, false);
 }
 
 void Room::setPILTTexture(ofTexture* newTex)
 {
-    pictureLeft.setTexture(newTex, true);
+    pictureLeft.setTexture(newTex, false);
 }
 
 void Room::setFlagTexture(ofTexture* newTex)
@@ -51,4 +62,6 @@ void Room::draw()
     pictureLeft.draw();
     pictureRight.draw();
     flag.draw();
+    frameR.draw();
+    frameL.draw();
 }

@@ -11,7 +11,7 @@ GameGUI::GameGUI()
     Manager->addTexture("OpenClickedHovered", "popupClickedHovered.png");
     Manager->addTexture("OpenClicked", "popupClicked.png");
     Manager->addTexture("OpenNormal", "popup.png");
-    Manager->addTexture("PopupBG", "PopupBG.png");
+    Manager->addTexture("PopupBG", "scroll.png");
     Manager->addFont("PopupFont", "Barquet.ttf", 24);
 
     Manager->addTexture("YesExitNormal", "Yea.png");
@@ -80,15 +80,16 @@ GameGUI::GameGUI()
 
     GUI.addEntity(*No, "NoButton");
     GUI.addEntity(*Yes, "YesButton");
-    GUI.addEntity(*ShopButton, "ShopButton");
+    //GUI.addEntity(*ShopButton, "ShopButton");
 
     popup.addEntity(*PopupBG, "BG");
     popup.addEntity(*popupText, "popupText");
     GUI.addEntity(*OKButton, "OKButton");
 
 
-    Manager->addMenu(popup, "popupMenu");
     Manager->addMenu(GUI, "GUIMenu");
+    Manager->addMenu(popup, "popupMenu");
+
 
     GUIMenu = Manager->getMenuPointerByName("GUIMenu");
     GUIMenu->setActive();

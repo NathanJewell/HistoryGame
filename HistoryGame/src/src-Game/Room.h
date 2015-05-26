@@ -10,11 +10,14 @@ public:
 
     void update();
     void draw();
+
+    void initFrames(ofVec2f, ofVec2f, ofTexture*, ofVec2f);
     void initBG(ofVec2f pos, ofTexture*, ofVec2f dSize);
     void initPERT(ofVec2f pos, ofTexture*, ofVec2f dSize);
     void initPELT(ofVec2f pos, ofTexture*, ofVec2f dSize);
     void initFlag(ofVec2f pos, ofTexture*, ofVec2f dSize);
 
+    void setFrameTextures(ofTexture*);
     void setBGTexture(ofTexture* newTex);
     void setPIRTTexture(ofTexture* newTex);
     void setPILTTexture(ofTexture* newTex);
@@ -30,5 +33,7 @@ private:
     Object pictureLeft;     //PIL
 //    Object personFront;     //PFT
     Object flag;
+    Object frameR;
+    Object frameL;
 
 };
