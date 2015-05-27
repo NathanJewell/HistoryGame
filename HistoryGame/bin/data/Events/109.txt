@@ -1,0 +1,12 @@
+thisNum = 109
+yesNum = 110
+noNum = 
+name = Frigates for the Navy
+description = Would you like to support the frigates for the navy? 
+roomType = desdytdrestydsyedtr
+date = 1815
+=ROOM
+bg= normal congress
+pic1= USA
+pic = SAME
+flag= 13 colonies

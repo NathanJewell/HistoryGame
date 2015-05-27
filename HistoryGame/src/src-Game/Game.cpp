@@ -11,8 +11,7 @@ Game::Game(int startingEvent)
     gameRoom.initPERT(ofVec2f((ofGetWindowWidth()/5)*4, (ofGetWindowHeight()/4)), recMan.getTexturePointer("DefaultPicRight"), ofVec2f(198, 264));
     gameRoom.initPELT(ofVec2f((ofGetWindowWidth()/5)-150, (ofGetWindowHeight()/4)), recMan.getTexturePointer("DefaultPicLeft"), ofVec2f(198, 264));
     gameRoom.initFlag(ofVec2f(ofGetWindowWidth()/2-112, 170), recMan.getTexturePointer("MuricanFlag"), ofVec2f(300, 400));
-    gameRoom.initFrames(ofVec2f((ofGetWindowWidth()/5)*4, (ofGetWindowHeight()/4)), ofVec2f((ofGetWindowWidth()/5)-150ds
-                                                                                            , (ofGetWindowHeight()/4)), recMan.getTexturePointer("frame"), ofVec2f(300, 366));
+    gameRoom.initFrames(ofVec2f((ofGetWindowWidth()/5)*4, (ofGetWindowHeight()/4)), ofVec2f((ofGetWindowWidth()/5)-150, (ofGetWindowHeight()/4)), recMan.getTexturePointer("frame"), ofVec2f(300, 366));
     currentEvent = loadEvent(startingEvent);    //load first event of chain
     adjustRoomToEvent();
     currentState = MMENU;
