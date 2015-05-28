@@ -68,7 +68,7 @@ MainMenu::MainMenu() // in the constructor, we create EVERYTHING in the main men
     Manager->addTexture("QuitPressed", "QuitButtonPressed.png");
 
     Manager->addTexture("Explosion", "Explosion.png");
-
+    Manager->addTexture("eagle", "eagleExplosion.png");
 
     //Here we add ALL of the fonts
     Manager->addFont("NormalFont", "MySimpleFont.ttf", 16); // adding fonts
@@ -248,9 +248,19 @@ MainMenu::MainMenu() // in the constructor, we create EVERYTHING in the main men
     explosionTexture = Manager->getTexture("Explosion");
     drawExplosion = false;
     explosionSound.loadSound("explosion.mp3");
-    explosionSound.setVolume(.5);
+    explosionSound.setVolume(.3);
+    explosionSound.setSpeed(1.5);
     ofSoundSetVolume(.5);
     explosionSound.setMultiPlay(true);
+    EAGLE.loadSound("EAGLE.wav");
+    EAGLE.setVolume(.5);
+    EAGLE.setSpeed(.9);
+    EAGLE.setMultiPlay(true);
+    bgMusic.loadSound("MenuMusic.mp3");
+    bgMusic.setVolume(.6);
+    bgMusic.setMultiPlay(false);
+    bgMusic.setPosition(ofRandom(.4, .6));
+    bgMusic.setLoop(true);
 
     /*------------------------------------------------------------------------------
     Done Making Buttons.
@@ -317,6 +327,11 @@ MainMenu::MainMenu() // in the constructor, we create EVERYTHING in the main men
 
 void MainMenu::draw() // in the draw function, all we do is call the manager's draw function
 {
+    if(!bgMusic.getIsPlaying())
+    {
+        bgMusic.play();
+        bgMusic.setPosition(ofRandom(.6, .8));
+    }
     if (active == true)
     {
         ofSetColor(BrightnessSlider->getEventDataInt() * 2 + 100, BrightnessSlider->getEventDataInt() * 2 + 100, BrightnessSlider->getEventDataInt() * 2 + 100); // simple brightness changer
@@ -329,13 +344,32 @@ void MainMenu::draw() // in the draw function, all we do is call the manager's d
         {
             framesDone = 0;
             drawExplosion = false;
+
         }
-        explosionTexture.draw(mPos.x-explosionTexture.getWidth()/2, mPos.y-explosionTexture.getHeight()/2);
+        if(EAGLE.getIsPlaying())
+        {
+            explosionTexture.draw(mPos.x-explosionTexture.getWidth()/2 + framesDone*20, mPos.y-explosionTexture.getHeight()/2 + framesDone*20);
+        }
+        else
+        {
+            explosionTexture.draw(mPos.x-explosionTexture.getWidth()/2, mPos.y-explosionTexture.getHeight()/2);
+        }
         if(doSound)
         {
-            explosionSound.play();
+            if(ofRandom(100) < 75 )
+            {
+                explosionSound.play();
+                explosionTexture=Manager->getTexture("Explosion");
+            }
+            else
+            {
+                EAGLE.play();
+                explosionTexture=Manager->getTexture("eagle");
+            }
             doSound = false;
+
         }
+
 
     }
 }

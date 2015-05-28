@@ -39,5 +39,7 @@ private:
     bool doSound;
     int framesDone;
     ofSoundPlayer explosionSound;
+    ofSoundPlayer EAGLE;
+    ofSoundPlayer bgMusic;
 };
 

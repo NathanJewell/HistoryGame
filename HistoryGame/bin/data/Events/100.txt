@@ -1,6 +1,6 @@
 thisNum = 100
 yesNum = 101
-noNum = 
+noNum = 201
 name = Declaration of Independence
 description = The Declaration of Independence announces your independence /nfrom Great Britain. Would you like to sign the Declarations of Independence?
 roomType = Continental Congress

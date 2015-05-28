@@ -1,6 +1,6 @@
 thisNum = 101
 yesNum = 102
-noNum = 
+noNum = 201
 name = Articles of Confederation
 description = The Articles of Confederation establish the 13 colonies/n as a confederation of sovereign states. /nWould you like ratify the Articles of Confederation?
 roomType = Continental Congress
