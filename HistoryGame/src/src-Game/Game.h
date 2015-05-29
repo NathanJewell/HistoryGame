@@ -31,7 +31,7 @@ private:
     Event currentEvent;
     Room gameRoom;
     Player gamePlayer;
-
+    ofSoundPlayer bgSound;
     int eventState;
 
 };

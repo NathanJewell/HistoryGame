@@ -248,7 +248,7 @@ MainMenu::MainMenu() // in the constructor, we create EVERYTHING in the main men
     explosionTexture = Manager->getTexture("Explosion");
     drawExplosion = false;
     explosionSound.loadSound("explosion.mp3");
-    explosionSound.setVolume(.3);
+    explosionSound.setVolume(.2);
     explosionSound.setSpeed(1.5);
     ofSoundSetVolume(.5);
     explosionSound.setMultiPlay(true);
@@ -422,7 +422,7 @@ bool MainMenu::update(ofVec2f& mousePos, bool& clicked, bool& pressed) // In Upd
              StartGameButton->setClicked(false);
              defaultMenu->setInactive();
              active = false;
-
+                bgMusic.stop();
              return true;
          }
 

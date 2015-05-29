@@ -18,6 +18,11 @@ Game::Game(int startingEvent)
     std::cout << currentEvent.getDescription() << std::endl;
     GUI.enablePopup();
 
+    bgSound.loadSound("courtbg.wav");
+    bgSound.setLoop(true);
+    bgSound.setVolume(.5);
+    bgSound.play();
+
 
 }
 
