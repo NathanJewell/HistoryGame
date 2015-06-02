@@ -1,0 +1,12 @@
+thisNum = 134
+yesNum = 135
+noNum = 0
+name = Social Security Act
+description = This will guarantee pensions to those retiring at 65 with contributions from both employees and employers. Do you want to pass it? 
+roomType = desdytdrestydsyedtr
+date = 1935
+=ROOM
+bg= normal congress
+pic1= security guard
+pic= Money sign
+flag= Normal US flag

@@ -1,0 +1,12 @@
+thisNum = 112
+yesNum = 113
+noNum = 113
+name = Federal aid for building roads and canals
+description = Would you like provide federal aid for building roads and canals?
+roomType = desdytdrestydsyedtr
+date = 1815
+=ROOM
+bg= CongressModern
+pic1= Canal
+pic= Road
+flag= ColonialFlag

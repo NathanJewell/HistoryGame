@@ -1,0 +1,13 @@
+thisNum = 128
+yesNum = 129
+noNum = 129
+name = Agricultural Adjustment Act
+description = This will provide immediate relief to farmers by setting prices for agricultural products and paying subsidies to farmers for curtailing production of certain crops that were in surplus. Will you pass it?
+roomType = desdytdrestydsyedtr
+date = 1933
+=ROOM
+bg= normal congress
+pic1= money sign
+pic= Field of crops 
+flag= Normal US flag
+flag= Normal US flag

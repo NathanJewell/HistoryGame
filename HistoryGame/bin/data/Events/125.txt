@@ -1,0 +1,12 @@
+thisNum = 125
+yesNum = 126
+noNum = 126
+name = World War 1
+description = Will you enter World War 1?
+roomType = desdytdrestydsyedtr
+date = 1917
+=ROOM
+bg= normal congress
+pic1= usa 
+pic= World war 2 symbol 
+flag= Normal US flag

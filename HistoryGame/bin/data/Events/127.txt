@@ -1,0 +1,12 @@
+thisNum = 127
+yesNum = 128
+noNum = 128
+name = Federal Emergency Relief Act
+description = Authorizes immediate grants to states for relief projects. Do you want to pass it?
+roomType = desdytdrestydsyedtr
+date = 1933
+=ROOM
+bg= normal congress
+pic1= USA
+pic= Food
+flag= Normal US flag

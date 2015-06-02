@@ -1,0 +1,12 @@
+thisNum = 121
+yesNum = 122
+noNum = 4
+name = South Seceding 
+description = The south is seceding from the union. Will you join them?
+roomType = desdytdrestydsyedtr
+date = 1860
+=ROOM
+bg= CongressModern
+pic1= Slavery
+pic= SouthMap
+flag= ConfederateFlag

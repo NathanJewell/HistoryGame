@@ -1,6 +1,6 @@
 thisNum = 102
 yesNum = 103
-noNum = 
+noNum = 2
 name = Constitution
 description = The Constitution establishes a national frame of government based off of the Articles of Confederation, How would you like to ratify the Constitution?
 roomType = desdytdrestydsyedtr

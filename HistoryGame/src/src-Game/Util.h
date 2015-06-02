@@ -26,6 +26,9 @@ T stringToType(std::string toChange)
 template<class T>
 void parseLineToData(T& putin, std::string line, std::string toFind, bool ignoreSpaces)
 {
+    int charPerLine = 40;
+    bool isSpace = false;
+    int lastChar = 0;
     int loc = line.find(toFind);    //find the escape sequence
     loc+=toFind.size();             //move location to end of sequence
 
@@ -40,13 +43,22 @@ void parseLineToData(T& putin, std::string line, std::string toFind, bool ignore
     std::string output = line.substr(loc);      //get the string from the end of the sequence+
     for(int i = 0; i<output.size();i++)
     {
-        if(output[i] == '/' && output[i+1] == 'n')
+//        if(output[i] == '/' && output[i+1] == 'n')
+//        {
+//             std::string tmp = output.substr(0, i-1);
+//             tmp+= "\n";
+//             tmp+=output.substr(i+2);
+//             output = tmp;
+//             i++;
+//        }
+        if(output[i] == ' ' && i-lastChar > 40)
         {
-             std::string tmp = output.substr(0, i-1);
-             tmp+= "\n";
-             tmp+=output.substr(i+2);
-             output = tmp;
-             i++;
+            lastChar = i;
+            std::string tmp = output.substr(0, i);
+            tmp+= "\n";
+            tmp+=output.substr(i+1);
+            output = tmp;
+            i++;
         }
     }
     try

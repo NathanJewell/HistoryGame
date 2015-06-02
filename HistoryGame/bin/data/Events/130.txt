@@ -1,0 +1,12 @@
+thisNum = 130
+yesNum = 131
+noNum = 0
+name = Federal Securities Act
+description = The Federal Securities Act will monitor and regulate stocks and bonds. Will you pass it?
+roomType = desdytdrestydsyedtr
+date = 1933 
+=ROOM
+bg= normal congress
+pic1= stocks/bonds pic
+pic= Security guard 
+flag= Normal US flag

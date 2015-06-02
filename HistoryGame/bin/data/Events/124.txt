@@ -1,0 +1,12 @@
+thisNum = 124
+yesNum = 125
+noNum = 125
+name = Plessy v Ferguson
+description =If you do not rule in favor of Plessy then you declare separate but equal facilities as legal. Would you like to rule in favor of Plessy?
+roomType = desdytdrestydsyedtr
+date = 1896
+=ROOM
+bg= supreme court
+pic1= USA
+pic= Black guy
+flag= Normal US flag

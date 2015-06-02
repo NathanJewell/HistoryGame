@@ -1,0 +1,12 @@
+thisNum = 2
+yesNum = 
+noNum = 
+name = America Falls Apart
+description = Your country's lack of ability to create a stable government led to its downfall and the U.S. was destroyed. 
+roomType = desdytdrestydsyedtr
+date = 1787
+=ROOM
+bg= CongressContinental
+pic1= fire
+pic= fire
+flag= HackerUS 

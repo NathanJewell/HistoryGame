@@ -1,12 +1,12 @@
 thisNum = 104
 yesNum = 105
-noNum = 
+noNum = 105
 name = Invest in cotton gin
 description = The cotton gin (invented by Eli Whitney), will revolutionize how cotton was picked in the United States. Would you like to invest money in the cotton gin?
 roomType = desdytdrestydsyedtr
 date = 1793
 =ROOM
-bg= Continental Congress 
-pic1= USA
+bg= CongressContinental
+pic1= CottonGin
 pic= SAME
-flag= 13 colonies flag
+flag= ColonialFlag

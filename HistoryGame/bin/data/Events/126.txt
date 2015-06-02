@@ -1,0 +1,11 @@
+thisNum = 126
+yesNum = 127
+noNum = 127
+name = Reforestation Relief Act
+description = This will establish the Civilian Conservation Corps (CCC) (it provides work immediately for 250,000 young men). Do you support it?
+roomType = desdytdrestydsyedtr
+date = 1933
+=ROOM
+bg= normal congress
+pic1= USA
+pic= SAMEflag= Normal US flag

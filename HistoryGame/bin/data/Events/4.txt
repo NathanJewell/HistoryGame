@@ -1,0 +1,12 @@
+thisNum = 4
+yesNum = 
+noNum = 
+name = Southern Downfall
+description = Your choice to join southern secession resulted in your death.
+roomType = desdytdrestydsyedtr
+date = 1860
+=ROOM
+bg= CongressModern
+pic1= fire
+pic= fire
+flag= ConfederateFlag

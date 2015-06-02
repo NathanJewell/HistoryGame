@@ -1,0 +1,12 @@
+thisNum = 123
+yesNum = 124
+noNum = 124
+name = Southern Reconstruction
+description = Will you support southern reconstruction?
+roomType = desdytdrestydsyedtr
+date = 1865
+=ROOM
+bg= CongressModern
+pic1= Construction
+pic= SouthMap
+flag= MuricanFlag

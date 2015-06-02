@@ -1,0 +1,12 @@
+thisNum = 117
+yesNum = 118
+noNum = 0
+name = Missouri Compromise
+description = Do you approve the Missouri Compromise?
+roomType = desdytdrestydsyedtr
+date = 1820
+=ROOM
+bg= CongressNormal
+pic1= MissouriMap
+pic= Handshake
+flag= ColonialFlag

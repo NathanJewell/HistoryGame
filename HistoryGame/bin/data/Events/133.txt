@@ -1,0 +1,12 @@
+thisNum = 133
+yesNum = 134
+noNum = 0
+name = Banking Act of 1935 
+description = This will revise the operation of the Federal Reserve System, generally making banks more responsible and responsive to the public. Do you want to pass it?
+roomType = desdytdrestydsyedtr
+date = 1935
+=ROOM
+bg= normal congress
+pic1= pic of bank
+pic= Coins
+flag= Normal US flag

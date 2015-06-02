@@ -1,0 +1,12 @@
+thisNum = 122
+yesNum = 123
+noNum = 0
+name = 13th Amendment
+description = Do you want to abolish slavery
+roomType = desdytdrestydsyedtr
+date = 1865
+=ROOM
+bg= normal congress 
+pic1= Freedom
+pic= Slavery
+flag= MuricanFlag

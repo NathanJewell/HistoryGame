@@ -1,0 +1,12 @@
+thisNum = 6
+yesNum = 
+noNum = 
+name = Terrorism Take Over
+description = The lack of security lead to ISIS taking over the U.S.
+roomType = desdytdrestydsyedtr
+date = 2001
+=ROOM
+bg= CongressModern
+pic1= ISIS
+pic= securityCam
+flag= ISISFlag

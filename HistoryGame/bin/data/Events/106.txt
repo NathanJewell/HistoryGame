@@ -1,12 +1,12 @@
 thisNum = 106
 yesNum = 107
-noNum = 
+noNum = 107
 name = 1st Charter of Bank of America
 description = This will make the first national bank of the United States.  Do you want to vote yes on no for the banks
 roomType = desdytdrestydsyedtr
 date = 1812
 =ROOM
-bg= normal congress
-pic1= Usa
-pic= SAME
-flag= 13 colonies
+bg= CongressModern
+pic1= Bank
+pic= DankMoney
+flag= ColonialFlag

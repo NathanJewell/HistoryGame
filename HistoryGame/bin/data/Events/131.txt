@@ -1,0 +1,12 @@
+thisNum = 131
+yesNum = 132
+noNum = 132
+name = Gold Reserve Act
+description = This will give government control over fluctuations in the value of the dollar.  Will you pass it?
+roomType = desdytdrestydsyedtr
+date = 1934
+=ROOM
+bg= normal congress
+pic1= gold
+pic= Money sign
+flag= Normal US flag

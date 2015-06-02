@@ -1,0 +1,12 @@
+thisNum = 116
+yesNum = 117
+noNum = 0
+name = McCulloch v. Maryland
+description = If you rule in favor of Maryland then you approve the state action may not impede valid constitutional exercises of power by the federal government,  Would you like to rule in favor of Marylan in this case?
+roomType = desdytdrestydsyedtr
+date = 1819
+=ROOM
+bg= SupremeCourt 
+pic1= Scroll
+pic= MarylandMap
+flag= ColonialFlag

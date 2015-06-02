@@ -1,0 +1,12 @@
+thisNum = 111
+yesNum = 112
+noNum = 0
+name = Army
+description = Would you like to raise a standing army and get federal control of the militia 
+roomType = desdytdrestydsyedtr
+date = 1815
+=ROOM
+bg= CongressModern
+pic1= BOR
+pic= Gun
+flag= ColonialFlag

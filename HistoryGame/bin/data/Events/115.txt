@@ -1,0 +1,12 @@
+thisNum = 115
+yesNum = 116
+noNum = 116
+name = Federal assumption of some state debt
+description = Do you approve the federal assumption of some state debt?
+roomType = desdytdrestydsyedtr
+date = 1815
+=ROOM
+bg= CongressModern
+pic1= USA
+pic= DankMoney
+flag= ColonialFlag

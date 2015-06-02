@@ -18,7 +18,7 @@ Game::Game(int startingEvent)
     std::cout << currentEvent.getDescription() << std::endl;
     GUI.enablePopup();
 
-    bgSound.loadSound("courtbg.wav");
+    bgSound.loadSound("courtBG.wav");
     bgSound.setLoop(true);
     bgSound.setVolume(.5);
     bgSound.play();
@@ -95,6 +95,14 @@ void Game::adjustRoomToEvent()
             case 3:
                 gameRoom.setFlagTexture(recMan.getTexturePointer(roomData[ii]));
             }
+        }
+    }
+
+    if(currentEvent < 100)
+    {
+        if(currentEvent == 0)
+        {
+            gameRoom.initFlag()
         }
     }
 }

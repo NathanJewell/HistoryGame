@@ -1,0 +1,12 @@
+thisNum = 136
+yesNum = 137
+noNum = 0
+name =Brown v. Board of Education
+description = If you rule in favor of Brown then you support that separate public school for blacks and whites are unequal.   Would you like to rule in favor of Brown?
+roomType = desdytdrestydsyedtr
+date = 1954
+=ROOM
+bg= supreme court
+pic1= black kids
+pic= School
+flag= Normal US flag

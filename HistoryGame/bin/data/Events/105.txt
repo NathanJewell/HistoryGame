@@ -1,12 +1,12 @@
-thisNum = 105
+﻿thisNum = 105
 yesNum = 106
-noNum = 
+noNum = 0
 name = Lewis and Clark Expedition
 description = Lewis and Clark’s expedition will lead them to the western part of the United State. Would you like to fund the expedition of Lewis and Clark?
 roomType = desdytdrestydsyedtr
 date = 1804
 =ROOM
-bg= normal congress
-pic1= USA 
+bg= CongressModern
+pic1= WestMap
 pic= SAME
-flag= 13 colonies
+flag= ColonialFlag

@@ -1,0 +1,12 @@
+thisNum = 119
+yesNum = 120
+noNum = 120
+name = Indian Removal Act
+description = Do you want to pass the Indian Removal Act?
+roomType = desdytdrestydsyedtr
+date = 1823
+=ROOM
+bg= normal congress
+pic1= Indian reservation map
+pic= Indians 
+flag= ColonialFlag

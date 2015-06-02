@@ -1,0 +1,12 @@
+thisNum = 132
+yesNum = 133
+noNum = 133
+name = Securities Exchange Act
+description = This will establish the SEC to regulate security transactions.
+roomType = desdytdrestydsyedtr
+date = 1934
+=ROOM
+bg= normal congress
+pic1= security guard
+pic= SEc logo
+flag= Normal US flag
