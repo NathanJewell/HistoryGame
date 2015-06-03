@@ -12,6 +12,7 @@ public:
     int update(ofVec2f& mousePos, bool& clicked, bool& pressed);
     void setPopupText(std::string);
     void enablePopup();
+    void setInfoText(std::string);
 //    void switchActive();
 //    bool getActive();
 
@@ -25,6 +26,7 @@ private:
    HoverButton* NoButton; // pointer to options button, etc...
 
    TextBox* PopupText;
+   TextBox* infoText;
    HoverButton* popupButton;
    HoverButton* shopButton;
 };

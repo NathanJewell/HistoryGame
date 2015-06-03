@@ -77,9 +77,14 @@ GameGUI::GameGUI()
                                  Manager->getTexturePointer("PopupBG"),
                                  false
                                     );
+    MenuEntity *infoBox;
+    infoBox = new TextBox("Swag",
+                          ofVec2f(10, 10),
+                          Manager->getFontPointer("PopupFont"));
 
     GUI.addEntity(*No, "NoButton");
     GUI.addEntity(*Yes, "YesButton");
+    GUI.addEntity(*infoBox, "InfoText");
     //GUI.addEntity(*ShopButton, "ShopButton");
 
     popup.addEntity(*PopupBG, "BG");
@@ -99,7 +104,7 @@ GameGUI::GameGUI()
 
     PopupText = PopupMenu->getPointerToChildByName<TextBox>("popupText");
     popupButton = GUIMenu->getPointerToChildByName<HoverButton>("OKButton");
-
+    InfoText = GUIMenu->getPointerToChildByName<TextBox>("InfoText");
     YesButton = GUIMenu->getPointerToChildByName<HoverButton>("YesButton");
     NoButton = GUIMenu->getPointerToChildByName<HoverButton>("NoButton");
     shopButton = GUIMenu->getPointerToChildByName<HoverButton>("ShopButton");
@@ -159,4 +164,9 @@ void GameGUI::setPopupText(std::string newText)
 void GameGUI::enablePopup()
 {
     PopupMenu->setActive();
+}
+
+void GameGUI::setInfoText(std::string text)
+{
+    InfoText->newSetText(text);
 }

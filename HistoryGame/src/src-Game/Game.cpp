@@ -97,12 +97,13 @@ void Game::adjustRoomToEvent()
             }
         }
     }
+    GUI.setInfoText(currentEvent.getName());
 
-    if(currentEvent < 100)
-    {
-        if(currentEvent == 0)
-        {
-            gameRoom.initFlag()
-        }
-    }
+//    if(currentEvent < 100)
+//    {
+//        if(currentEvent == 0)ed
+//        {
+//            gameRoom.initFlag()
+//        }
+//    }
 }
