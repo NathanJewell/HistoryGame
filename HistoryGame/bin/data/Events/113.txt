@@ -1,8 +1,8 @@
 thisNum = 113
 yesNum = 114
 noNum = 114
-name = Tariff
-description = Would you like to approve a protectice tariff to encourage manufacturers?
+name = Protective Tariff
+description = Manufacturing is suffering due to cheap foreign goods, a tarrif could prevent this problem. Would you like to approve a protective tariff to encourage manufacturers?
 roomType = desdytdrestydsyedtr
 date = 1815
 =ROOM

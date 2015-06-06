@@ -11,7 +11,6 @@ void ofApp::update(){
     theGame->update(mousePos, clicked, pressed);
     if(pressed != true)
     {
-        std::cout << "c: " << clicked << std::endl;
         clicked = false;
     }
     dragging = false;

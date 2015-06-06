@@ -16,6 +16,10 @@ public:
     std::string getRoomType();
     int getDate();
     int getNextEventNum(bool which);
+    int getEventNum()
+    {
+        return thisEventNum;
+    }
     std::vector<std::string> getRoomTextureData();
     std::vector<std::string> roomTextureData;
 private:

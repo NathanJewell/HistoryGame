@@ -1,0 +1,12 @@
+thisNum = 3
+yesNum = 
+noNum = 
+name = No Rights America
+description = Your country's lack of ability to give proper rights to citizens created a terrible place to live. Sanctions from other countries and a massive influx of people leaving the country resulted in the death of the US.
+roomType = desdytdrestydsyedtr
+date = 2002
+=ROOM
+bg= CongressModern
+pic1= fire
+pic= fire
+flag= CommunistUS2

@@ -1,8 +1,8 @@
 thisNum = 114
 yesNum = 115
 noNum = 115
-name = Re-establishing the National Bank
-description = Would you like to re-establish the National Bank?
+name = Re-charter of the National Bank
+description = The last bank was a success and is looking to keep up the good work. Would you like to re-charter the National Bank?
 roomType = desdytdrestydsyedtr
 date = 1815
 =ROOM

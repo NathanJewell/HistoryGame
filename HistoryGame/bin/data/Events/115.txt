@@ -1,12 +1,12 @@
 thisNum = 115
 yesNum = 116
 noNum = 116
-name = Federal assumption of some state debt
-description = Do you approve the federal assumption of some state debt?
+name = Assumption of Some State Debt
+description = The states beg you to relieve some of their overwhelming financial burdens.  This decision could impact state dependence on the federal government immensely. Do you approve the federal assumption of some state debt?
 roomType = desdytdrestydsyedtr
 date = 1815
 =ROOM
 bg= CongressModern
-pic1= USA
+pic1= USAMap
 pic= DankMoney
 flag= ColonialFlag

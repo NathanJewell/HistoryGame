@@ -8,5 +8,5 @@ date = 2001
 =ROOM
 bg= CongressModern
 pic1= ISIS
-pic= securityCam
+pic= securityCamera
 flag= ISISFlag

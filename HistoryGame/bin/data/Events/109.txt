@@ -1,8 +1,8 @@
 thisNum = 109
-yesNum = 110
-noNum = 110
+yesNum = 111
+noNum = 111
 name = Frigates for the Navy
-description = Would you like to support the frigates for the navy? 
+description = Would you like to support the building of more frigates for the navy? 
 roomType = desdytdrestydsyedtr
 date = 1815
 =ROOM

@@ -12,7 +12,7 @@ public:
     bool update(ofVec2f& mousePos, bool& clicked, bool& pressed);
     void switchActive();
     bool getActive();
-
+    void restartMenu();
 private:
    MenuManager *Manager; // this is the menumanager for the main menu
    Menu* optionsMenu; // pointer to options menu

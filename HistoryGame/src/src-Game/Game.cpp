@@ -8,10 +8,10 @@ Game::Game(int startingEvent)
     gamePlayer.initPant(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()-10), recMan.getTexturePointer("ClassicSlacks"));
     gamePlayer.initShirt(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()-74), recMan.getTexturePointer("ClassicSuit"));
     gameRoom.initBG(ofVec2f(240,135), recMan.getTexturePointer("CongressModern"), ofVec2f(ofGetWindowWidth(), ofGetWindowHeight()));
-    gameRoom.initPERT(ofVec2f((ofGetWindowWidth()/5)*4, (ofGetWindowHeight()/4)), recMan.getTexturePointer("DefaultPicRight"), ofVec2f(198, 264));
-    gameRoom.initPELT(ofVec2f((ofGetWindowWidth()/5)-150, (ofGetWindowHeight()/4)), recMan.getTexturePointer("DefaultPicLeft"), ofVec2f(198, 264));
+    gameRoom.initPERT(ofVec2f((ofGetWindowWidth()/5)*4 + 15, (ofGetWindowHeight()/4)+7), recMan.getTexturePointer("DefaultPicRight"), ofVec2f(198, 264));
+    gameRoom.initPELT(ofVec2f((ofGetWindowWidth()/5)-150+15-50, (ofGetWindowHeight()/4)+7), recMan.getTexturePointer("DefaultPicLeft"), ofVec2f(198, 264));
     gameRoom.initFlag(ofVec2f(ofGetWindowWidth()/2-112, 170), recMan.getTexturePointer("MuricanFlag"), ofVec2f(300, 400));
-    gameRoom.initFrames(ofVec2f((ofGetWindowWidth()/5)*4, (ofGetWindowHeight()/4)), ofVec2f((ofGetWindowWidth()/5)-150, (ofGetWindowHeight()/4)), recMan.getTexturePointer("frame"), ofVec2f(300, 366));
+    gameRoom.initFrames(ofVec2f((ofGetWindowWidth()/5)*4, (ofGetWindowHeight()/4)), ofVec2f((ofGetWindowWidth()/5)-150-50, (ofGetWindowHeight()/4)), recMan.getTexturePointer("frame"), ofVec2f(300, 366));
     currentEvent = loadEvent(startingEvent);    //load first event of chain
     adjustRoomToEvent();
     currentState = MMENU;
@@ -52,7 +52,18 @@ void Game::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
             currentEvent = currentEvent.doNextEvent(true);
             adjustRoomToEvent();
         }
-        gamePlayer.update();
+        else if(eventState == 4)
+        {
+            mainMenu.restartMenu();
+            currentState = MMENU;
+        }
+        else if(eventState == 5)
+        {
+            GUI.toggleYNButs();
+            GUI.toggleEndScreen();
+            currentEvent = loadEvent(100);
+            adjustRoomToEvent();
+        }
     }
     else if(currentState == MMENU)
     {
@@ -68,7 +79,6 @@ void Game::draw()
     if(currentState == GAME)
     {
         gameRoom.draw();
-        gamePlayer.draw();
         GUI.draw();
     }
     else if(currentState == MMENU)
@@ -97,13 +107,11 @@ void Game::adjustRoomToEvent()
             }
         }
     }
-    GUI.setInfoText(currentEvent.getName());
+    GUI.setInfoText(currentEvent.getName() + ", " + typeToString(currentEvent.getDate()));
 
-//    if(currentEvent < 100)
-//    {
-//        if(currentEvent == 0)ed
-//        {
-//            gameRoom.initFlag()
-//        }
-//    }
+    if(currentEvent.getEventNum() < 100)
+    {
+        GUI.toggleYNButs();
+        GUI.toggleEndScreen();
+    }
 }

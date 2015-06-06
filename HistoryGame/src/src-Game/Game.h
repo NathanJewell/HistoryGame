@@ -8,6 +8,7 @@
 #include "MainMenu.h"
 #include "ResourceManager.h"
 #include "Room.h"
+#include "Util.h"
 class Game
 {
 public:

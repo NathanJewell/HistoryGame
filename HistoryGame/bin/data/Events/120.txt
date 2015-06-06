@@ -1,7 +1,7 @@
 thisNum = 120
 yesNum = 121
 noNum = 121 
-name = Dred Scott 
+name = Dred Scott Decision
 description = If you do not rule in favor of Dred Scott then you declare that African Americans can not be citizens and the Missouri Compromise is unconstitutional. Would you like to rule in favor of Dred Scott?
 roomType = desdytdrestydsyedtr
 date = 1857

@@ -1,8 +1,8 @@
 thisNum = 112
 yesNum = 113
 noNum = 113
-name = Federal aid for building roads and canals
-description = Would you like provide federal aid for building roads and canals?
+name = Federal Aid for Roads and Canals
+description = The national system of infrastructure could be vastly improved with a bit of federal assistance. Would you like provide federal aid for building roads and canals?
 roomType = desdytdrestydsyedtr
 date = 1815
 =ROOM

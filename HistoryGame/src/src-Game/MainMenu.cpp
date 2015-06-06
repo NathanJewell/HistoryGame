@@ -423,6 +423,7 @@ bool MainMenu::update(ofVec2f& mousePos, bool& clicked, bool& pressed) // In Upd
              defaultMenu->setInactive();
              active = false;
                 bgMusic.stop();
+                std::cout << "here ur nana" << std::endl;
              return true;
          }
 
@@ -492,5 +493,11 @@ void MainMenu::switchActive()
 bool MainMenu::getActive()
 {
     return active;
+}
+
+void MainMenu::restartMenu()
+{
+    defaultMenu->setActive();
+    active = true;
 }
 

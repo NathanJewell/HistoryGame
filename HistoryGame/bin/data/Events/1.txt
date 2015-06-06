@@ -1,8 +1,8 @@
 thisNum = 1
 yesNum =
 noNum = 
-name = Britain retains control
-description = The Declaration of Independence wasn’t signed, so the United States doesn’t gain independence from Britain.
+name = Britain Retains Control
+description = The Declaration of Independence wasn’t signed, so the United States doesn’t gain independence from Britain.  Nice try, Sir.
 roomType = Continental Congress
 date = 1776
 =ROOM
