@@ -1,10 +1,12 @@
 thisNum = 4
-yesNum = 
-noNum = 
+yesNum = 4
+noNum = 4
 name = Southern Downfall
 description = Your choice to join Southern Secession resulted in your death.
 roomType = desdytdrestydsyedtr
 date = 1860
+f=1
+f=1
 =ROOM
 bg= CongressModern
 pic1= fire

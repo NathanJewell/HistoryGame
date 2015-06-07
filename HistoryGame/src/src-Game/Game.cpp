@@ -22,7 +22,7 @@ Game::Game(int startingEvent)
     bgSound.setLoop(true);
     bgSound.setVolume(.5);
     bgSound.play();
-
+    currentScore = 100;
 
 }
 
@@ -40,17 +40,56 @@ void Game::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
 {
     if(currentState == GAME)
     {
+        GUI.setScore("Patriot Points: " + typeToString(currentScore));
         eventState = GUI.update(mousePos, clicked, pressed);    //0 is no 1 is yes 3 is nothing
         GUI.setPopupText(currentEvent.getDescription());
         if(eventState == 0)
         {
-            currentEvent = currentEvent.doNextEvent(false);
-            adjustRoomToEvent();
+            currentScore += currentEvent.getPointValue(false);
+            if(currentScore <= 0)
+            {
+                if(currentEvent.getNextEventNum(false) < 100)
+                {
+                    currentEvent = currentEvent.doNextEvent(false);
+                    adjustRoomToEvent();
+                }
+                else
+                {
+                    currentEvent = loadEvent(0);
+                    adjustRoomToEvent();
+                }
+
+            }
+            else
+            {
+                currentEvent = currentEvent.doNextEvent(false);
+                adjustRoomToEvent();
+            }
+
         }
         else if(eventState == 1)
         {
-            currentEvent = currentEvent.doNextEvent(true);
-            adjustRoomToEvent();
+            currentScore += currentEvent.getPointValue(true);
+            if(currentScore <= 0)
+            {
+                if(currentEvent.getNextEventNum(true) < 100)
+                {
+                    currentEvent = currentEvent.doNextEvent(true);
+                    adjustRoomToEvent();
+                }
+                else
+                {
+                    currentEvent = loadEvent(0);
+                    adjustRoomToEvent();
+                }
+
+            }
+            else
+            {
+                currentEvent = currentEvent.doNextEvent(true);
+                adjustRoomToEvent();
+            }
+
         }
         else if(eventState == 4)
         {
@@ -62,6 +101,7 @@ void Game::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
             GUI.toggleYNButs();
             GUI.toggleEndScreen();
             currentEvent = loadEvent(100);
+            currentScore = 100;
             adjustRoomToEvent();
         }
     }
@@ -107,7 +147,7 @@ void Game::adjustRoomToEvent()
             }
         }
     }
-    GUI.setInfoText(currentEvent.getName() + ", " + typeToString(currentEvent.getDate()));
+    GUI.setInfoText(currentEvent.getName() + ", \n" + typeToString(currentEvent.getDate()));
 
     if(currentEvent.getEventNum() < 100)
     {

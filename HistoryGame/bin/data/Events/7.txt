@@ -1,0 +1,12 @@
+thisNum = 6
+yesNum = 
+noNum = 
+name = States Take Over
+description = Fanatic states rightists continued to overrule reasonable federal decisions which led to the fall of the union.
+roomType = desdytdrestydsyedtr
+date = 1820
+=ROOM
+bg= CongressModern
+pic1= USAMap
+pic= fire
+flag= USFlagdead

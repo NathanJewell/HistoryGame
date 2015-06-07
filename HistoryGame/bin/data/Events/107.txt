@@ -1,10 +1,12 @@
 thisNum = 107
-yesNum = 108
-noNum = 108
+yesNum = 109
+noNum = 109
 name = Treat of Ghent
 description = This will end the war of 1812. Do you want to approve this treaty?
 roomType = desdytdrestydsyedtr
 date = 1814
+pointsYes = 100
+pointsNo = -300
 =ROOM
 bg= CongressModern
 pic1= Scroll

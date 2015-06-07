@@ -34,5 +34,6 @@ private:
     Player gamePlayer;
     ofSoundPlayer bgSound;
     int eventState;
+    int currentScore;
 
 };

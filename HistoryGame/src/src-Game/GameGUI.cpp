@@ -12,7 +12,7 @@ GameGUI::GameGUI()
     Manager->addTexture("OpenClickedHovered", "popupClickedHovered.png");
     Manager->addTexture("OpenClicked", "popupClicked.png");
     Manager->addTexture("OpenNormal", "popup.png");
-    Manager->addTexture("PopupBG", "scroll.png");
+    Manager->addTexture("PopupBG", "olderpaper.png");
     Manager->addFont("PopupFont", "Barquet.ttf", 24);
 
     Manager->addTexture("YesExitNormal", "Yea.png");
@@ -56,7 +56,7 @@ GameGUI::GameGUI()
     MenuEntity *popupText;
     popupText = new TextBox(
                             "SWAG",
-                            ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()/2-300),
+                            ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()/2-75),
                             Manager->getFontPointer("PopupFont")
                                 );
 
@@ -92,19 +92,24 @@ GameGUI::GameGUI()
                             Manager->getTexturePointer("restartClicked"));
 
     MenuEntity *PopupBG;
-    PopupBG = new MenuBackground(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()/2-75),
+    PopupBG = new MenuBackground(ofVec2f(ofGetWindowWidth()/2, ofGetWindowHeight()/2+100),
                                  Manager->getTexturePointer("PopupBG"),
                                  false
                                     );
     MenuEntity *infoBox;
     infoBox = new TextBox("Swag",
-                          ofVec2f(10, 10),
+                          ofVec2f(250, 25),
+                          Manager->getFontPointer("PopupFont"));
+
+    MenuEntity *ScoreBox;
+    ScoreBox = new TextBox("Swag",
+                          ofVec2f(ofGetWindowWidth()-200, 25),
                           Manager->getFontPointer("PopupFont"));
 
     YN.addEntity(*No, "NoButton");
     YN.addEntity(*Yes, "YesButton");
     GUI.addEntity(*infoBox, "InfoText");
-    //GUI.addEntity(*ShopButton, "ShopButton");
+    GUI.addEntity(*ScoreBox, "Score");
 
     popup.addEntity(*PopupBG, "BG");
     popup.addEntity(*popupText, "popupText");
@@ -138,6 +143,7 @@ GameGUI::GameGUI()
     shopButton = GUIMenu->getPointerToChildByName<HoverButton>("ShopButton");
     mainMenuBut = GUIMenu->getPointerToChildByName<HoverButton>("MenuButton");
     EndButton = EndMenu->getPointerToChildByName<HoverButton>("Restart");
+    scoreBox = GUIMenu->getPointerToChildByName<TextBox>("Score");
 
 
 }
@@ -149,7 +155,6 @@ void GameGUI::draw()
 
 int GameGUI::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
 {
-    InfoText->setPosition(ofVec2f(ofGetWindowWidth()/2, 50));
     Manager->update(mousePos, clicked, pressed);
     if(NoButton->getEventDataInt() > 2)
     {
@@ -236,6 +241,11 @@ void GameGUI::toggleEndScreen()
     {
         EndMenu->setActive();
     }
+}
+
+void GameGUI::setScore(std::string score)
+{
+    scoreBox->setText(score);
 }
 
 

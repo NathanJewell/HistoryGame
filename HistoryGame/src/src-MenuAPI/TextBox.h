@@ -11,7 +11,7 @@ public:
 
     void addPosition(ofVec2f dpos);
     void newSetText(std::string text);
-
+        void setText(std::string str);
     void setPosition(ofVec2f posi);
     void setFont(ofTrueTypeFont& f);
     int getHeight();
@@ -32,7 +32,7 @@ public:
     }
 
 private:
-    void setText(std::string str);
+
     std::string text;
     ofVec2f position;
     ofTrueTypeFont* font;

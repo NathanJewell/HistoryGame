@@ -5,7 +5,7 @@ Event::Event()
 
 }
 
-Event::Event (int tn, int yn, int nn, std::string na, std::string des, std::string room, int da)
+Event::Event (int tn, int yn, int nn, std::string na, std::string des, std::string room, int da, int pVY, int pVN)
 {
     //assigning all variables
     thisEventNum = tn;
@@ -15,6 +15,8 @@ Event::Event (int tn, int yn, int nn, std::string na, std::string des, std::stri
     description = des;
     roomType = room;
     date = da;
+    pointValueYes = pVY;
+    pointValueNo = pVN;
 }
 
 Event::Event (int tn)

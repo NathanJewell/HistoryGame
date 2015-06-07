@@ -15,6 +15,7 @@ public:
     void setInfoText(std::string);
     void toggleYNButs();
     void toggleEndScreen();
+    void setScore(std::string);
 //    void switchActive();
 //    bool getActive();
 
@@ -35,5 +36,6 @@ private:
    HoverButton* shopButton;
    HoverButton* mainMenuBut;
    HoverButton* EndButton;
+   TextBox* scoreBox;
 };
 

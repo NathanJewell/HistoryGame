@@ -1,10 +1,12 @@
 thisNum = 121
-yesNum = 122
-noNum = 4
+yesNum = 4
+noNum = 122
 name = South Seceding 
-description = The south is seceding from the union due to saltiness over slavery. Will you join them?
+description = The south is seceding from the union due to rising tempers about slavery. Will you join them?
 roomType = desdytdrestydsyedtr
 date = 1860
+pointsYes = -10000
+pointsNo = 50
 =ROOM
 bg= CongressModern
 pic1= Slavery

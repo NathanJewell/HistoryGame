@@ -6,7 +6,7 @@ class Event
 {
 public:
     Event();
-    Event(int tn, int yn, int nn, std::string name, std::string des, std::string room, int date);
+    Event(int tn, int yn, int nn, std::string name, std::string des, std::string room, int date, int pVY, int pVN);
     Event(int tn);
 
     Event doNextEvent(bool which);  //return the next event to display
@@ -20,12 +20,20 @@ public:
     {
         return thisEventNum;
     }
+    int getPointValue(bool which)
+    {
+        if(which)
+        {
+            return pointValueYes;
+        }
+        return pointValueNo;
+    }
     std::vector<std::string> getRoomTextureData();
     std::vector<std::string> roomTextureData;
 private:
     int thisEventNum, yesEventNum, noEventNum;  //ID numbers for this event and its following events
     std::string name, description, roomType;
-    int date;
+    int date, pointValueYes, pointValueNo;
 
 };
 
@@ -63,9 +71,18 @@ inline Event loadEvent(int eventNum)
                     fileLines[3],
                     fileLines[4],
                     fileLines[5],
-                    stringToType<int>(fileLines[6]));
+                    stringToType<int>(fileLines[6]),
+                    stringToType<int>(fileLines[7]),
+                    stringToType<int>(fileLines[8]));
 
-    if(fileLines[7]=="ROOM")
+    if(fileLines[9]=="ROOM")
+    {
+        for(int ii =10; ii<fileLines.size();ii++)
+        {
+            tempEvent.roomTextureData.push_back(fileLines[ii]);
+        }
+    }
+    else if(fileLines[7]=="ROOM")
     {
         for(int ii =8; ii<fileLines.size();ii++)
         {
