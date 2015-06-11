@@ -20,9 +20,25 @@ Game::Game(int startingEvent)
 
     bgSound.loadSound("courtBG.wav");
     bgSound.setLoop(true);
-    bgSound.setVolume(.5);
+    bgSound.setVolume(.6);
     bgSound.play();
     currentScore = 100;
+
+    lossSound.loadSound("ending.mp3");
+    lossSound.setLoop(false);
+    lossSound.setVolume(.5);
+
+    boos.loadSound("booing.wav");
+    boos.setMultiPlay(false);
+    boos.setLoop(false);
+    boos.setVolume(1);
+
+    applause.loadSound("applause.wav");
+    applause.setMultiPlay(false);
+    applause.setLoop(false);
+    applause.setVolume(1);
+
+    endSound = false;
 
 }
 
@@ -45,9 +61,11 @@ void Game::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
         GUI.setPopupText(currentEvent.getDescription());
         if(eventState == 0)
         {
+            dif = currentScore;
             currentScore += currentEvent.getPointValue(false);
             if(currentScore <= 0)
             {
+                lossSound.play();
                 if(currentEvent.getNextEventNum(false) < 100)
                 {
                     currentEvent = currentEvent.doNextEvent(false);
@@ -65,6 +83,14 @@ void Game::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
                 currentEvent = currentEvent.doNextEvent(false);
                 adjustRoomToEvent();
             }
+            if(currentScore-dif > 0)
+            {
+                applause.play();
+            }
+            else if(currentScore > 0)
+            {
+                boos.play();
+            }
 
         }
         else if(eventState == 1)
@@ -72,6 +98,7 @@ void Game::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
             currentScore += currentEvent.getPointValue(true);
             if(currentScore <= 0)
             {
+                endSound = true;
                 if(currentEvent.getNextEventNum(true) < 100)
                 {
                     currentEvent = currentEvent.doNextEvent(true);
@@ -89,21 +116,36 @@ void Game::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
                 currentEvent = currentEvent.doNextEvent(true);
                 adjustRoomToEvent();
             }
+            if(currentScore-dif > 0)
+            {
+                applause.play();
+            }
+            else if(currentScore > 0)
+            {
+                boos.play();
+            }
+
 
         }
         else if(eventState == 4)
         {
+            endSound = false;
             mainMenu.restartMenu();
             currentState = MMENU;
         }
         else if(eventState == 5)
         {
+            endSound = false;
             GUI.toggleYNButs();
             GUI.toggleEndScreen();
             currentEvent = loadEvent(100);
             currentScore = 100;
             adjustRoomToEvent();
         }
+    }
+    if(if)
+    {
+        lossSound.stop();
     }
     else if(currentState == MMENU)
     {
@@ -112,6 +154,8 @@ void Game::update(ofVec2f& mousePos, bool& clicked, bool& pressed)
             currentState = GAME;
         }
     }
+
+
 }
 
 void Game::draw()

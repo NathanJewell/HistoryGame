@@ -32,8 +32,12 @@ private:
     Event currentEvent;
     Room gameRoom;
     Player gamePlayer;
-    ofSoundPlayer bgSound;
+    ofSoundPlayer bgSound, lossSound, boos, applause;
     int eventState;
     int currentScore;
+    bool endSound;
+    int dif;
+
+
 
 };
